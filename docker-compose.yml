@@ -19,6 +19,14 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  tailwindcss-watch:
+    image: mercari-clone:latest
+    volumes:
+      - .:/myapp
+      - bundle:/usr/local/bundle
+      - node_modules:/myapp/node_modules
+    command: ["rails", "tailwindcss:watch"]
+    tty: true
 volumes:
   bundle:
   node_modules:
