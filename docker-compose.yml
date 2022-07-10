@@ -19,6 +19,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: webpack-dev-server
   tailwindcss-watch:
     image: mercari-clone:latest
     volumes:
@@ -27,6 +29,20 @@ services:
       - node_modules:/myapp/node_modules
     command: ["rails", "tailwindcss:watch"]
     tty: true
+  webpack-dev-server:
+    image: mercari-clone:latest
+    volumes:
+      - .:/myapp
+      - bundle:/usr/local/bundle
+      - node_modules:/myapp/node_modules
+    environment:
+      NODE_ENV: development
+      RAILS_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+      NODE_OPTIONS: --openssl-legacy-provider
+    command: ./bin/webpack-dev-server
+    ports:
+      - '3035:3035'
 volumes:
   bundle:
   node_modules:
