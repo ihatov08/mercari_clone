@@ -13,6 +13,16 @@
 
   <body>
     <%= render partial: 'shared/header' %>
+    <% if flash[:notice] %>
+        <div class="mt-20 bg-blue-100 booder-t border-t border-blue-500 text-blue-700 px-4 py-3" role="alert">
+          <p class="text-sm"><%= flash[:notice] %></p>
+        </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="mt-20 bg-red-100 booder-t border-t border-red-100 text-red-700 px-4 py-3" role="alert">
+        <p class="text-sm"><%= flash[:alert] %></p>
+      </div>
+    <% end %>
     <%= yield %>
     <%= render partial: "shared/footer" %>
   </body>
