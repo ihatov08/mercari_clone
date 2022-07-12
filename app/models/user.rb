@@ -11,4 +11,10 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :gender, presence: true
+
+  enum gender: {
+      unanswered: 0,
+      male: 1,
+      female: 2
+  }
 end
