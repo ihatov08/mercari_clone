@@ -27,3 +27,9 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザー
+  enums:
+    user:
+      gender:
+        unanswered: 無回答
+        male: 男性
+        female: 女性
