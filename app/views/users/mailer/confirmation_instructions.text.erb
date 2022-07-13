@@ -1,0 +1,6 @@
+<%= @resource.nickname %>さん
+
+URIKAIをご利用いただきありがとうございます。
+
+以下のURLをクリックして、メールアドレス認証手続きを完了してください。
+<%= confirmation_url(@resource, confirmation_token: @token) %>
