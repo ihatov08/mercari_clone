@@ -1,29 +1,53 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
+  <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
+    <h1 class="font-black mb-8 text-2xl">会員登録</h1>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <div class="text-left">
+        <div class="mb-8">
+          <%= f.label :email, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
+        </div>
+        <div class="mb-8">
+          <%= f.label :password, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <div class="relative">
+            <div class="absolute top-0 pr-4 inset-y-0 right-0 flex items-center">
+              <button>
+                <svg class="w-5 text-gray-500 hover:text-gray-700 duration-200 transition" id="icon_action_visibility_24px" data-name="icon/action/visibility_24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <rect fill="none"></rect>
+                  <path id="_Color" data-name=" ↳Color" d="M11,15a11.731,11.731,0,0,1-6.726-2.1A11.837,11.837,0,0,1,0,7.5a11.818,11.818,0,0,1,22,0,11.836,11.836,0,0,1-4.273,5.4A11.731,11.731,0,0,1,11,15ZM11,2.5a5,5,0,1,0,5,5A5.005,5.005,0,0,0,11,2.5Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,11,10.5Z" transform="translate(1 4.5)" fill="currentColor"></path>
+                </svg>
+              </button>
+            </div>
+            <%= f.password_field :password, autocomplete: "new-password", class: "w-full p-3 text-black w-full border border-[#CDD6DD]" %>
+          </div>
+          <% if @minimum_password_length %>
+            <p class="text-xs mt-1 text-gray-800">※<%= @minimum_password_length %>字以上の半角英数字</p>
+          <% end %>
+        </div>
+        <div class="mb-8">
+          <%= f.label :nickname, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :nickname, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
+        </div>
+        <div class="mb-8">
+          <%= f.label :gender, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.collection_radio_buttons(:gender, User.genders_i18n, :first, :last) do |b| %>
+            <%= b.label(class: "block w-full hover:bg-gray-100 transition duration-200 px-1 py-2") do %>
+              <%= b.radio_button(class: "mr-1") + tag.span(b.text, class: "text-sm") %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="text-left mt-12">
+        <div class="text-xs text-gray-600 mb-8">
+          <p>※この情報はお客様の体験を向上させるために使用されます。公開されることはありません</p>
+        </div>
+      </div>
+      <div>
+        <div class="text-center mb-2 flex flex-col space-y-4">
+          <%= f.submit "次へ", class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</main>

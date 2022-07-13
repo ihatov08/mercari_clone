@@ -24,5 +24,7 @@ module Myapp
         g.helper false
         g.test_framework  :test_unit, fixture: false
     end
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end
