@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :gender, presence: true
+  before_validation :skip_confirmation!, if: :new_record?
 
   enum gender: {
       unanswered: 0,
