@@ -1,0 +1,40 @@
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
+  <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
+    <h1 class="font-black mb-4 text-2xl">本人情報登録</h1>
+    <div class="text-left mb-8">
+      <div class="text-sm text-gray-600 mb-8">
+        <p>安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。</p>
+      </div>
+    </div>
+    <%= form_with model: @user_information, url: user_information_path do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @user_information } %>
+      <div class="text-left">
+        <div class="mb-8">
+          <%= f.label :family_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :family_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full", placeholder: "例）売買" %>
+        </div>
+        <div class="mb-8">
+          <%= f.label :given_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :given_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full", placeholder: "例）太郎" %>
+        </div>
+        <div class="mb-8">
+          <%= f.label :given_name_kana, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :given_name_kana, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full", placeholder: "例）ウリカイ" %>
+        </div>
+        <div class="mb-8">
+          <%= f.label :family_name_kana, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :family_name_kana, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full", placeholder: "例）タロウ" %>
+        </div>
+        <div class="mb-8">
+          <%= f.label :birth_date, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.date_field :birth_date, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full", placeholder: "2021/12/12" %>
+        </div>
+      </div>
+      <div>
+        <div class="text-center mb-2 flex flex-col space-y-4">
+          <%= f.submit "次へ", class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>

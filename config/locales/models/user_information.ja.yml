@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user_information:
+        family_name: 姓（全角）
+        given_name: 名（全角）
+        family_name_kana: 姓カナ（全角）
+        given_name_kana: 名カナ（全角）
+        birth_date: 生年月日
+    models:
+      user_information: 本人情報
