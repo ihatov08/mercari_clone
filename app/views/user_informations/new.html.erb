@@ -6,7 +6,7 @@
         <p>安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。</p>
       </div>
     </div>
-    <form action="" mehod="">
+    <%= form_with model: @user_information, url: user_information_path do |f| %>
       <div class="text-left">
         <div class="mb-8">
           <label class="block text-grey-500 text-sm font-bold mb-2" for="username">姓（全角）
@@ -39,6 +39,6 @@
           <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">次へ</button>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </main>
