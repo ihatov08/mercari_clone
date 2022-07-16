@@ -6,6 +6,14 @@ class UserInformationsController < ApplicationController
   end
 
   def create
+    @user_information = current_user.build_user_information(user_information_params)
+
+    if @user_information.save
+      redirect_to :root, notice: "個人情報の登録に成功しました"
+    else
+      flash.now.alert = "個人情報の登録に失敗しました"
+      render :new
+    end
   end
 
   private
