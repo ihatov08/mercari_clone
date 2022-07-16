@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :gender, presence: true
   before_validation :skip_confirmation!, if: :new_record?
 
+  has_one :user_information, dependent: :destroy
+
   enum gender: {
       unanswered: 0,
       male: 1,
