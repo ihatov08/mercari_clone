@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      user_mobile_phone:
+        user_id: ユーザーID
+        number: 電話番号
+        auth_code: 認証コード
+        verified: 認証状態
+    models:
+      user_mobile_phone: 電話番号
