@@ -1,0 +1,2 @@
+class ItemCondition < ApplicationRecord
+end
