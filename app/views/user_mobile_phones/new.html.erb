@@ -7,6 +7,7 @@
       </div>
     </div>
     <%= form_with model: @user_mobile_phone, url: user_mobile_phone_path do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @user_mobile_phone } %>
       <div class="text-left">
         <div class="mb-8">
           <%= f.label :number, class: "block text-grey-500 text-sm font-bold mb-2" %>
