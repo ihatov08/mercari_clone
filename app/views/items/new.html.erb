@@ -4,126 +4,53 @@
     <%= form_with model: @item, url: items_path do |f| %>
       <div class="text-left">
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">出品画像（最大10枚）
-          </label>
-          <input type="file" multiple name="" id="">
+          <%= f.label :images, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.file_field :images, multiple: true %>
         </div>
       </div>
       <div class="text-left">
         <h3 class="text-black mb-4 text-xl font-black">商品の詳細</h3>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">カテゴリー
-          </label>
-          <select class="w-full text-black p-3 undefined border border-[#CDD6DD]">
-            <option>選択してください</option>
-            <option>選択してください</option>
-          </select>
+          <%= f.label :item_category, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.collection_select :item_category_id, ItemCategory.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">商品の状態
-          </label>
-          <select class="w-full text-black p-3 undefined border border-[#CDD6DD]">
-            <option>選択してください</option>
-            <option>新品</option>
-            <option>中古</option>
-          </select>
+          <%= f.label :item_condition, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.collection_select :item_condition_id, ItemCondition.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
         </div>
       </div>
       <div class="text-left">
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">商品名
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="">
+          <%= f.label :name, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">商品の説明
-          </label>
-          <textarea class="border border-gray-300 rounded py-2 px-3 text-grey-darker h-32 w-full" placeholder=""></textarea>
+          <%= f.label :description, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_area :description, class: "border border-gray-300 rounded py-2 px-3 text-grey-darker h-32 w-full" %>
         </div>
       </div>
       <div class="text-left">
         <h3 class="text-black mb-4 text-xl font-black">配送料について</h3>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">配送料の負担
-          </label>
-          <select class="w-full text-black p-3 undefined border border-[#CDD6DD]">
-            <option>選択してください</option>
-            <option>送料込み（出品者負担）</option>
-            <option>着払い（購入者負担）</option>
-          </select>
+          <%= f.label :shipping_payer_type, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.collection_select :shipping_payer_type_id, ShippingPayerType.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">発送元の地域
-          </label>
-          <select class="w-full text-black p-3 undefined border border-[#CDD6DD]">
-            <option>選択してください</option>
-            <option>北海道</option>
-            <option>青森県</option>
-            <option>岩手県</option>
-            <option>宮城県</option>
-            <option>秋田県</option>
-            <option>山形県</option>
-            <option>福島県</option>
-            <option>茨城県</option>
-            <option>栃木県</option>
-            <option>群馬県</option>
-            <option>埼玉県</option>
-            <option>千葉県</option>
-            <option>東京都</option>
-            <option>神奈川県</option>
-            <option>新潟県</option>
-            <option>山梨県</option>
-            <option>長野県</option>
-            <option>富山県</option>
-            <option>石川県</option>
-            <option>福井県</option>
-            <option>岐阜県</option>
-            <option>静岡県</option>
-            <option>愛知県</option>
-            <option>三重県</option>
-            <option>滋賀県</option>
-            <option>京都府</option>
-            <option>大阪府</option>
-            <option>兵庫県</option>
-            <option>奈良県</option>
-            <option>和歌山県</option>
-            <option>鳥取県</option>
-            <option>島根県</option>
-            <option>岡山県</option>
-            <option>広島県</option>
-            <option>山口県</option>
-            <option>徳島県</option>
-            <option>香川県</option>
-            <option>愛媛県</option>
-            <option>高知県</option>
-            <option>福岡県</option>
-            <option>佐賀県</option>
-            <option>長崎県</option>
-            <option>熊本県</option>
-            <option>大分県</option>
-            <option>宮崎県</option>
-            <option>鹿児島県</option>
-            <option>沖縄県</option>
-          </select>
+          <%= f.label :prefecture, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">発送までの日数
-          </label>
-          <select class="w-full text-black p-3 undefined border border-[#CDD6DD]">
-            <option>選択してください</option>
-            <option>1〜2日で発送</option>
-            <option>2〜3日で発送</option>
-            <option>4〜7日で発送</option>
-          </select>
+          <%= f.label :shipping_day_type, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.collection_select :shipping_day_type_id, ShippingDayType.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
         </div>
       </div>
       <div class="text-left">
         <h3 class="text-black mb-4">価格（300円以上、1000万円未満）</h3>
         <div class="mb-8 justify-between items-center md:flex">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">販売価格
-          </label>
+          <%= f.label :price, class: "block text-grey-500 text-sm font-bold mb-2" %>
+
           <div class="inline-flex items-center"><span class="mr-2">￥</span>
-            <input class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-grey-darker w-full md:w-44 text-right text-xl" type="text" placeholder="">
+            <%= f.text_field :price, class: "appearance-none border border-gray-300 rounded w-full py-2 px-3 text-grey-darker w-full md:w-44 text-right text-xl" %>
           </div>
         </div>
       </div>
@@ -134,8 +61,7 @@
       </div>
       <div class="md:w-10/12 mx-auto">
         <div class="text-center mb-2 flex flex-col space-y-4">
-          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">出品する</button>
-          <button class="text-base font-bold bg-white border-2 border-red-500 text-red-500 p-2 w-full block text-sm py-4 rounded-sm" value="">下書きに保存する</button>
+          <%= f.submit "出品する", class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm" %>
         </div>
       </div>
     <% end %>
