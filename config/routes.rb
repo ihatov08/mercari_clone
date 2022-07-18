@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resource :user_information
-  resource :user_mobile_phone, only: %i[new create]
+  resource :user_mobile_phone, only: %i[new create] do
+    collection do
+      get :verification
+      post :verification
+    end
+  end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
