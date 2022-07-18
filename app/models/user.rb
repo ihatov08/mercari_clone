@@ -14,6 +14,7 @@ class User < ApplicationRecord
   before_validation :skip_confirmation!, if: :new_record?
 
   has_one :user_information, dependent: :destroy
+  has_one :user_mobile_phone, dependent: :destroy
 
   enum gender: {
       unanswered: 0,
