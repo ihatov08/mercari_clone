@@ -5,6 +5,20 @@
       <%= render partial: "shared/error_messages", locals: { resource: @item } %>
       <div class="text-left">
         <div class="mb-8">
+          <div class="grid grid-cols-4 gap-px md:grid-cols-6 md:gap-3 lg:gap-6 mb-5">
+            <% f.object.images.each.with_index do |image, index| %>
+              <div class="col-span-1 group hover:opacity-80 duration-200 md:rounded-md">
+                <div class="relative overflow-hidden md:rounded-md">
+                  <div class="aspect-w-1 aspect-h-1 bg-gray-500 overflow-hidden md:rounded-md">
+                    <%= image_tag image.url, class: "object-cover md:rounded-md" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="grid grid-cols-4 gap-px md:grid-cols-6 md:gap-3 lg:gap-6 mb-5">
+          </div>
+          <%= f.hidden_field :images_cache %>
           <%= f.label :images, class: "block text-grey-500 text-sm font-bold mb-2" %>
           <%= f.file_field :images, multiple: true %>
         </div>
