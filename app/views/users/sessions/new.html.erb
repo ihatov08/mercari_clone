@@ -1,26 +1,32 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:min-h-[calc(100vh-24rem)] md:px-8 xl:px-0" id="contents">
+  <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
+    <h1 class="font-black mb-8 text-2xl">ログイン</h1>
+    <form action="" mehod="">
+      <div class="text-left">
+        <div class="mb-8">
+          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">メールアドレス
+          </label>
+          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="">
+        </div>
+        <div class="mb-8">
+          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">パスワード
+          </label>
+          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="">
+        </div>
+      </div>
+      <div class="mb-8 mt-12">
+        <div class="text-center mb-2 flex flex-col space-y-4">
+          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">ログイン</button>
+        </div>
+      </div>
+      <div class="text-right">
+        <a class="flex items-center justify-end text-sm text-blue-500 hover:opacity-80" href="#">
+          <span>パスワードを忘れた方はこちら</span>
+          <svg class="w-5" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.46967 4.21967C8.17678 4.51256 8.17678 4.98744 8.46967 5.28033L15.1893 12L8.46967 18.7197C8.17678 19.0126 8.17678 19.4874 8.46967 19.7803C8.76256 20.0732 9.23744 20.0732 9.53033 19.7803L16.7803 12.5303C17.0732 12.2374 17.0732 11.7626 16.7803 11.4697L9.53033 4.21967C9.23744 3.92678 8.76256 3.92678 8.46967 4.21967Z" fill="currentColor"></path>
+          </svg>
+        </a>
+      </div>
+    </form>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</main>
