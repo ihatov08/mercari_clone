@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      item:
+        user: ユーザー
+        name: 商品名
+        description: 商品の説明
+        item_category: カテゴリー
+        item_condition: 商品の状態
+        shipping_payer_type: 配送料の負担
+        prefecture: 発送元の地域
+        shipping_day_type: 発送までの日数
+        price: 販売価格
+        images: 商品画像
+    models:
+      item: 商品

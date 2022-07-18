@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :items
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

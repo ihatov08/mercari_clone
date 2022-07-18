@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_18_074302) do
+ActiveRecord::Schema.define(version: 2022_07_18_075519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,27 @@ ActiveRecord::Schema.define(version: 2022_07_18_074302) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_item_conditions_on_name", unique: true
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.json "images", default: {}, null: false
+    t.bigint "item_category_id", null: false
+    t.bigint "item_condition_id", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.bigint "shipping_payer_type_id", null: false
+    t.bigint "prefecture_id", null: false
+    t.bigint "shipping_day_type_id", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_category_id"], name: "index_items_on_item_category_id"
+    t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["shipping_day_type_id"], name: "index_items_on_shipping_day_type_id"
+    t.index ["shipping_payer_type_id"], name: "index_items_on_shipping_payer_type_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "prefectures", force: :cascade do |t|
@@ -104,6 +125,12 @@ ActiveRecord::Schema.define(version: 2022_07_18_074302) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "items", "item_categories"
+  add_foreign_key "items", "item_conditions"
+  add_foreign_key "items", "prefectures"
+  add_foreign_key "items", "shipping_day_types"
+  add_foreign_key "items", "shipping_payer_types"
+  add_foreign_key "items", "users"
   add_foreign_key "user_informations", "users"
   add_foreign_key "user_mobile_phones", "users"
 end

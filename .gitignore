@@ -40,3 +40,5 @@ yarn-debug.log*
 !/app/assets/builds/.keep
 rails_routes_markdown.rb
 routes.md
+
+public/uploads/
