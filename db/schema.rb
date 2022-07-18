@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_18_073756) do
+ActiveRecord::Schema.define(version: 2022_07_18_074302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2022_07_18_073756) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_prefectures_on_name", unique: true
     t.index ["name_en"], name: "index_prefectures_on_name_en", unique: true
+  end
+
+  create_table "shipping_day_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_shipping_day_types_on_name", unique: true
   end
 
   create_table "shipping_payer_types", force: :cascade do |t|
