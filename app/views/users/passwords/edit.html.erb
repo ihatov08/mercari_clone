@@ -2,6 +2,7 @@
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">パスワード再設定</h1>
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.hidden_field :reset_password_token %>
       <div class="text-left">
         <div class="mb-8">
           <%= f.label :password, class: "block text-grey-500 text-sm font-bold mb-2" %>
