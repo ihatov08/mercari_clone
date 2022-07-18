@@ -57,7 +57,7 @@
         <li><%= link_to "会員登録", new_user_registration_path, class: "relative hover:bg-gray-100 duration-200 rounded-lg px-2 py-2" %></li>
       <% end %>
       <li>
-        <button class="bg-red-500 font-bold text-white px-4 py-1 rounded text-base">出品</button>
+        <%= link_to "出品", new_item_path, class: "bg-red-500 font-bold text-white px-4 py-1 rounded text-base" %>
       </li>
     </ul>
   </div>
