@@ -1,0 +1,2 @@
+class ShippingPayerType < ApplicationRecord
+end
