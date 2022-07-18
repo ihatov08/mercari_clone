@@ -2,6 +2,7 @@
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">アカウントロック解除</h1>
     <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "shared/error_messages", resource: resource %>
       <div class="text-left">
         <div class="mb-8">
           <%= f.label :email, class: "block text-grey-500 text-sm font-bold mb-2" %>
