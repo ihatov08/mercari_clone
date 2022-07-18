@@ -1,7 +1,7 @@
 <main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">商品の出品</h1>
-    <form action="" mehod="">
+    <%= form_with model: @item, url: items_path do |f| %>
       <div class="text-left">
         <div class="mb-8">
           <label class="block text-grey-500 text-sm font-bold mb-2" for="username">出品画像（最大10枚）
@@ -138,6 +138,6 @@
           <button class="text-base font-bold bg-white border-2 border-red-500 text-red-500 p-2 w-full block text-sm py-4 rounded-sm" value="">下書きに保存する</button>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </main>
