@@ -1,0 +1,7 @@
+<%= @resource.nickname %>さん
+
+URIKAIをご利用いただきありがとうございます。
+
+以下のURLをクリックして、アカウントロックを解除してください。
+
+<%= unlock_url(@resource, unlock_token: @token) %>
