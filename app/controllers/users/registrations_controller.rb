@@ -38,6 +38,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def complete
+  end
+
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
