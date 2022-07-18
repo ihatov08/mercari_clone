@@ -30,14 +30,14 @@ ja:
       password_change:
         greeting: "%{recipient}様"
         message: パスワードが再設定されました。
-        subject: パスワードの変更について
+        subject: 【URIKAI】パスワードの変更について
       reset_password_instructions:
         action: パスワード変更
         greeting: "%{recipient}様"
         instruction: パスワード再設定の依頼を受けたため、メールを送信しています。下のリンクからパスワードの再設定ができます。
         instruction_2: パスワード再設定の依頼をしていない場合、このメールを無視してください。
         instruction_3: パスワードの再設定は、上のリンクから新しいパスワードを登録するまで完了しません。
-        subject: パスワードの再設定について
+        subject: 【URIKAI】パスワードの再設定について
       unlock_instructions:
         action: アカウントのロック解除
         greeting: "%{recipient}様"
