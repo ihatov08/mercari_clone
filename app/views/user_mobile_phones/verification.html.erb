@@ -6,7 +6,7 @@
         <p>本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行います。電話番号が他のお客さまに公開されることはありません。</p>
       </div>
     </div>
-    <%= form_with url: verification_user_mobile_phone_path do |f| %>
+    <%= form_with model: @user_mobile_phone, url: verification_user_mobile_phone_path do |f| %>
       <div class="text-left">
         <div class="mb-8">
           <%= f.label :auth_code, class: "block text-grey-500 text-sm font-bold mb-2" %>
