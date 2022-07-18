@@ -2,6 +2,7 @@
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">商品の出品</h1>
     <%= form_with model: @item, url: items_path do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @item } %>
       <div class="text-left">
         <div class="mb-8">
           <%= f.label :images, class: "block text-grey-500 text-sm font-bold mb-2" %>
