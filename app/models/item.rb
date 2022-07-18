@@ -10,4 +10,6 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
+
+  mount_uploaders :images, ImageUploader
 end
