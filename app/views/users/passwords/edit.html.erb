@@ -4,14 +4,20 @@
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
       <div class="text-left">
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">パスワード
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="">
+          <%= f.label :password, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
+          <% if @minimum_password_length %>
+            <em>パスワードは<%= @minimum_password_length %>文字以上で入力してください</em><br />
+          <% end %>
         </div>
+        <div class="mb-8">
+        <%= f.label :password_confirmation, class: "block text-grey-500 text-sm font-bold mb-2" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
+      </div>
       </div>
       <div class="mb-8 mt-12">
         <div class="text-center mb-2 flex flex-col space-y-4">
-          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">パスワードを再設定する</button>
+          <%= f.submit "パスワードを変更する", class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm" %>
         </div>
       </div>
       <div class="text-right">
