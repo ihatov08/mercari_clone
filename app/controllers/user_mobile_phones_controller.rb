@@ -7,4 +7,7 @@ class UserMobilePhonesController < ApplicationController
 
   def create
   end
+
+  def verification
+  end
 end
