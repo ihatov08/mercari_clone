@@ -18,7 +18,7 @@
       <p class="text-2xl font-bold" id="product_name"><%= @item.name %></p>
       <p class="mb-4" id="pricing">
         <span class="text-2xl font-medium-bold text-red-500 mr-2"><%= number_to_currency @item.price %></span>
-        <span class="text-sm">(税込) 送料込み</span>
+        <span class="text-sm"><%= @item.shipping_payer_type.name %></span>
       </p>
       <div class="flex space-x-0 mb-4">
         <button class="p-2 px-4 text-center flex flex-col space-y-2 items-center justify-center hover:bg-gray-100 duration-200 transition rounded-sm">
