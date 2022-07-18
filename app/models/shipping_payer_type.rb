@@ -1,3 +1,3 @@
 class ShippingPayerType < ApplicationRecord
-  validates :name, presence: true, uniquness: true
+  validates :name, presence: true, uniqueness: true
 end
