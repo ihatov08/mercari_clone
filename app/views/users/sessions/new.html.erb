@@ -1,7 +1,7 @@
 <main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:min-h-[calc(100vh-24rem)] md:px-8 xl:px-0" id="contents">
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">ログイン</h1>
-    <form action="" mehod="">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="text-left">
         <div class="mb-8">
           <label class="block text-grey-500 text-sm font-bold mb-2" for="username">メールアドレス
@@ -27,6 +27,6 @@
           </svg>
         </a>
       </div>
-    </form>
+    <% end %>
   </div>
 </main>
