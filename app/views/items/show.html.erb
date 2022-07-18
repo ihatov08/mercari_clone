@@ -2,21 +2,16 @@
   <div class="flex flex-col space-y-8 md:space-y-0 md:flex-row  md:space-x-12" id="item">
     <div class="w-full md:w-7/12 md:flex md:space-x-12">
       <div class="flex flex-col hidden md:flex md:w-1/6 space-y-2" id="thumbnails">
-        <a class="aspect-w-1 aspect-h-1 bg-gray-100 overflow-hidden" href="#">
-          <img class="object-contain" src="img/item/shoews.jpeg">
-        </a>
-        <a class="aspect-w-1 aspect-h-1 bg-gray-100 overflow-hidden" href="#">
-          <img class="object-contain" src="https://placehold.jp/65/525252/ffffff/300x300.png?text=%E7%94%BB%E5%83%8F">
-        </a>
-        <a class="aspect-w-1 aspect-h-1 bg-gray-100 overflow-hidden" href="#">
-          <img class="object-contain" src="https://placehold.jp/65/525252/ffffff/300x300.png?text=%E7%94%BB%E5%83%8F">
-        </a>
-        <a class="aspect-w-1 aspect-h-1 bg-gray-100 overflow-hidden" href="#">
-          <img class="object-contain" src="https://placehold.jp/65/525252/ffffff/300x300.png?text=%E7%94%BB%E5%83%8F">
-        </a>
+        <% @item.images[1..-1].each do |image| %>
+          <a class="aspect-w-1 aspect-h-1 bg-gray-100 overflow-hidden" href="#">
+            <%= image_tag image.url, class: "object-contain" %>
+          </a>
+        <% end %>
       </div>
       <div class="w-full" id="pic">
-        <div class="aspect-w-1 aspect-h-1 bg-gray-100 overflow-hidden"><img class="object-contain m" src="img/item/shoews.jpeg"></div>
+        <div class="aspect-w-1 aspect-h-1 bg-gray-100 overflow-hidden">
+          <%= image_tag @item.images[0].url, class: "object-contain m" %>
+          </div>
       </div>
     </div>
     <div class="w-full md:w-5/12">
