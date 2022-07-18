@@ -16,6 +16,11 @@ class UserMobilePhone < ApplicationRecord
       .send_auth_code_to_sms(to: number, auth_code: auth_code)
   end
 
+  def verify(code)
+    return unless auth_code == code
+    update(verified: true)
+  end
+
   private
 
   def set_auth_code
