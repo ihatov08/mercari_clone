@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_day_type
 
+  has_many :favorites, dependent: :destroy
+
   validates :images, presence: true
   validates :name, presence: true
   validates :description, presence: true
