@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items
+  resources :items do
+    resources :favorites, only: %i[create destroy], shallow: true
+  end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
