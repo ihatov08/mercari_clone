@@ -1,0 +1,77 @@
+<%= render partial: "shared/error_messages", locals: { resource: @item } %>
+<div class="text-left">
+  <div class="mb-8">
+    <div class="grid grid-cols-4 gap-px md:grid-cols-6 md:gap-3 lg:gap-6 mb-5">
+      <% f.object.images.each.with_index do |image, index| %>
+        <div class="col-span-1 group hover:opacity-80 duration-200 md:rounded-md">
+          <div class="relative overflow-hidden md:rounded-md">
+            <div class="aspect-w-1 aspect-h-1 bg-gray-500 overflow-hidden md:rounded-md">
+              <%= image_tag image.url, class: "object-cover md:rounded-md" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="grid grid-cols-4 gap-px md:grid-cols-6 md:gap-3 lg:gap-6 mb-5">
+    </div>
+    <%= f.hidden_field :images_cache %>
+    <%= f.label :images, class: "block text-grey-500 text-sm font-bold mb-2" %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+</div>
+<div class="text-left">
+  <h3 class="text-black mb-4 text-xl font-black">商品の詳細</h3>
+  <div class="mb-8">
+    <%= f.label :item_category, class: "block text-grey-500 text-sm font-bold mb-2" %>
+    <%= f.collection_select :item_category_id, ItemCategory.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
+  </div>
+  <div class="mb-8">
+    <%= f.label :item_condition, class: "block text-grey-500 text-sm font-bold mb-2" %>
+    <%= f.collection_select :item_condition_id, ItemCondition.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
+  </div>
+</div>
+<div class="text-left">
+  <div class="mb-8">
+    <%= f.label :name, class: "block text-grey-500 text-sm font-bold mb-2" %>
+    <%= f.text_field :name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
+  </div>
+  <div class="mb-8">
+    <%= f.label :description, class: "block text-grey-500 text-sm font-bold mb-2" %>
+    <%= f.text_area :description, class: "border border-gray-300 rounded py-2 px-3 text-grey-darker h-32 w-full" %>
+  </div>
+</div>
+<div class="text-left">
+  <h3 class="text-black mb-4 text-xl font-black">配送料について</h3>
+  <div class="mb-8">
+    <%= f.label :shipping_payer_type, class: "block text-grey-500 text-sm font-bold mb-2" %>
+    <%= f.collection_select :shipping_payer_type_id, ShippingPayerType.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
+  </div>
+  <div class="mb-8">
+    <%= f.label :prefecture, class: "block text-grey-500 text-sm font-bold mb-2" %>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
+  </div>
+  <div class="mb-8">
+    <%= f.label :shipping_day_type, class: "block text-grey-500 text-sm font-bold mb-2" %>
+    <%= f.collection_select :shipping_day_type_id, ShippingDayType.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
+  </div>
+</div>
+<div class="text-left">
+  <h3 class="text-black mb-4">価格（300円以上、1000万円未満）</h3>
+  <div class="mb-8 justify-between items-center md:flex">
+    <%= f.label :price, class: "block text-grey-500 text-sm font-bold mb-2" %>
+
+    <div class="inline-flex items-center"><span class="mr-2">￥</span>
+      <%= f.text_field :price, class: "appearance-none border border-gray-300 rounded w-full py-2 px-3 text-grey-darker w-full md:w-44 text-right text-xl" %>
+    </div>
+  </div>
+</div>
+<div class="text-left mt-12">
+  <div class="text-xs text-gray-600 mb-8">
+    <p>禁止されている行為および出品物を必ずご確認ください。偽ブランド品や等品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。</p>
+  </div>
+</div>
+<div class="md:w-10/12 mx-auto">
+  <div class="text-center mb-2 flex flex-col space-y-4">
+    <%= f.submit "出品する", class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm" %>
+  </div>
+</div>
