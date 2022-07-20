@@ -25,6 +25,12 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: "商品の更新に成功しました"
+    else
+      flash.now.alert = "商品の更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
