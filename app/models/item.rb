@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_day_type
 
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :images, presence: true
   validates :name, presence: true
