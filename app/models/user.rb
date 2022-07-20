@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_one :user_mobile_phone, dependent: :destroy
 
   has_many :items, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   enum gender: {
       unanswered: 0,
