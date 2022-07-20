@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_current_user_item, only: [:edit, :update]
 
   def new
     @item = current_user.items.build
@@ -24,6 +25,12 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: "商品の更新に成功しました"
+    else
+      flash.now.alert = "商品の更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
@@ -44,5 +51,9 @@ class ItemsController < ApplicationController
       :images_cache,
       images: []
     )
+  end
+
+  def set_current_user_item
+    @item = current_user.items.find(params[:id])
   end
 end
