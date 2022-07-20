@@ -34,4 +34,8 @@ class User < ApplicationRecord
   def remember_me
     true
   end
+
+  def liked?(item)
+    favorites.exists?(item: item)
+  end
 end
