@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_one :user_mobile_phone, dependent: :destroy
 
   has_many :items, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   enum gender: {
       unanswered: 0,
@@ -32,5 +33,9 @@ class User < ApplicationRecord
 
   def remember_me
     true
+  end
+
+  def liked?(item)
+    favorites.exists?(item: item)
   end
 end
