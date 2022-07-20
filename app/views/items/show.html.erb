@@ -85,7 +85,7 @@
         <a class="py-4 flex space-x-4 items-start mb-4 border-t border-b border-gray-300 block md:items-center hover:bg-gray-100" href="#">
           <%= image_tag "profile.png", class: "rounded-full w-10 h-10 md:w-14 md:h-14" %>
           <div class="flex-grow">
-            <p class="font-bold">USERNAME</p>
+            <p class="font-bold"><%= @item.user.nickname %></p>
             <div class="flex space-x-4 items-center">
               <object>
                 <a class="flex space-x-2 items-center text-blue-500" id="rating" href="#">
