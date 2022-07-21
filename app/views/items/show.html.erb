@@ -210,9 +210,11 @@
         </div>
         <div class="w-full">
           <p class="text-sm font-bold mb-2">商品へのコメント</p>
-          <textarea class="border border-gray-300 rounded py-2 px-3 text-grey-darker h-32 my-4 mb-2 w-full" placeholder="コメントする"></textarea>
-          <p class="text-sm mb-4 mt-4">相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。</p>
-          <button class="mt-8 text-base font-bold bg-white border-2 border-red-500 text-red-500 p-2 w-full block text-sm py-4 rounded-sm" value="">コメントを送信する</button>
+          <%= form_with model: Comment.new, url: item_comments_path(@item) do |f| %>
+            <%= f.text_area :body, class: "border border-gray-300 rounded py-2 px-3 text-grey-darker h-32 my-4 mb-2 w-full", placeholder: "コメントする" %>
+            <p class="text-sm mb-4 mt-4">相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。</p>
+            <%= f.submit "コメントする", class: "mt-8 text-base font-bold bg-white border-2 border-red-500 text-red-500 p-2 w-full block text-sm py-4 rounded-sm" %>
+          <% end %>
         </div>
       </div>
     </div>
