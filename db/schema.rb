@@ -88,12 +88,12 @@ ActiveRecord::Schema.define(version: 2022_07_21_232639) do
 
   create_table "reports", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "item_id", null: false
+    t.bigint "comment_id", null: false
     t.bigint "report_reason_id", null: false
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_reports_on_item_id"
+    t.index ["comment_id"], name: "index_reports_on_comment_id"
     t.index ["report_reason_id"], name: "index_reports_on_report_reason_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(version: 2022_07_21_232639) do
   add_foreign_key "items", "shipping_day_types"
   add_foreign_key "items", "shipping_payer_types"
   add_foreign_key "items", "users"
-  add_foreign_key "reports", "items"
+  add_foreign_key "reports", "comments"
   add_foreign_key "reports", "report_reasons"
   add_foreign_key "reports", "users"
   add_foreign_key "user_informations", "users"
