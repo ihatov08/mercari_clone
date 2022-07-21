@@ -149,64 +149,38 @@
           <p class="text-xs">2 件</p>
         </div>
         <div class="h-full flex flex-col space-y-4 mb-8">
-          <div class="flex space-x-3 items-start">
-            <div class="flex-col flex items-center justify-center">
-              <div class="w-10 h-10 bg-center rounded-full bg-red-500 mb-2 overflow-hidden"><img class="object-cover" src="img/product/41QMntM-txL._AC_.jpg">
+          <% @item.comments.each do |comment| %>
+            <div class="flex space-x-3 items-start">
+              <div class="flex-col flex items-center justify-center">
+                <div class="w-10 h-10 bg-center rounded-full bg-red-500 mb-2 overflow-hidden">
+                  <%= image_tag "profile.png", class: "object-cover" %>
+                </div>
               </div>
-            </div>
-            <div class="w-full">
-              <p class="text-xxs mb-1 text-gray-800 font-black">山田</p>
-              <div class="bg-gray-100 rounded-t-lg rounded-br-lg p-3 text-sm mb-2">
-                <p>この商品ですが、もう少し安くならないのでしょうか？今、お金がなくて困ってまして、友人に借りようかと迷っています。</p>
-                <p class="text-xxs text-left text-gray-400">06/13 17:24</p>
-                <div class="flex justify-end space-x-2">
-                  <button class="hover:bg-gray-300 duration-200 trantision rounded-full flex items-center justify-center w-6 h-6">
-                    <svg class="w-3.5 text-gray-700" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 3.747a.75.75 0 0 1 .75-.75h16.504a.75.75 0 0 1 .6 1.2L16.69 9.748l4.164 5.552a.75.75 0 0 1-.6 1.2H4.5v4.749a.75.75 0 0 1-.648.743L3.75 22a.75.75 0 0 1-.743-.648L3 21.249V3.747Z" fill="currentColor"></path>
-                    </svg>
-                  </button>
-                  <button class="hover:bg-gray-300 duration-200 trantision rounded-full flex items-center justify-center w-6 h-6">
-                    <svg class="w-3.5 text-gray-700" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="ic_fluent_delete_24_filled" fill="currentColor" fill-rule="nonzero">
-                          <path d="M21.5,6 C21.5,6.51283584 21.1139598,6.93550716 20.6166211,6.99327227 L20.5,7 L19.6552587,7 L18.4238627,19.5191927 C18.2853972,20.9269251 17.1015956,22 15.6870698,22 L8.31293022,22 C6.89840444,22 5.71460282,20.9269251 5.57613734,19.5191927 L4.34474133,7 L3.5,7 C2.94771525,7 2.5,6.55228475 2.5,6 C2.5,5.44771525 2.94771525,5 3.5,5 L8.5,5 C8.5,3.06700338 10.0670034,1.5 12,1.5 C13.9329966,1.5 15.5,3.06700338 15.5,5 L20.5,5 C21.0522847,5 21.5,5.44771525 21.5,6 Z M14.25,9.25 C13.8703042,9.25 13.556509,9.53215388 13.5068466,9.89822944 L13.5,10 L13.5,17 L13.5068466,17.1017706 C13.556509,17.4678461 13.8703042,17.75 14.25,17.75 C14.6296958,17.75 14.943491,17.4678461 14.9931534,17.1017706 L15,17 L15,10 L14.9931534,9.89822944 C14.943491,9.53215388 14.6296958,9.25 14.25,9.25 Z M9.75,9.25 C9.37030423,9.25 9.05650904,9.53215388 9.00684662,9.89822944 L9,10 L9,17 L9.00684662,17.1017706 C9.05650904,17.4678461 9.37030423,17.75 9.75,17.75 C10.1296958,17.75 10.443491,17.4678461 10.4931534,17.1017706 L10.5,17 L10.5,10 L10.4931534,9.89822944 C10.443491,9.53215388 10.1296958,9.25 9.75,9.25 Z M12,3.5 C11.1715729,3.5 10.5,4.17157288 10.5,5 L13.5,5 C13.5,4.17157288 12.8284271,3.5 12,3.5 Z"></path>
+              <div class="w-full">
+                <p class="text-xxs mb-1 text-gray-800 font-black"><%= comment.user.nickname %></p>
+                <div class="bg-gray-100 rounded-t-lg rounded-br-lg p-3 text-sm mb-2">
+                  <p><%= comment.body %></p>
+                  <p class="text-xxs text-left text-gray-400"><%= l comment.created_at, format: :short %></p>
+                  <div class="flex justify-end space-x-2">
+                    <button class="hover:bg-gray-300 duration-200 trantision rounded-full flex items-center justify-center w-6 h-6">
+                      <svg class="w-3.5 text-gray-700" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 3.747a.75.75 0 0 1 .75-.75h16.504a.75.75 0 0 1 .6 1.2L16.69 9.748l4.164 5.552a.75.75 0 0 1-.6 1.2H4.5v4.749a.75.75 0 0 1-.648.743L3.75 22a.75.75 0 0 1-.743-.648L3 21.249V3.747Z" fill="currentColor"></path>
+                      </svg>
+                    </button>
+                    <button class="hover:bg-gray-300 duration-200 trantision rounded-full flex items-center justify-center w-6 h-6">
+                      <svg class="w-3.5 text-gray-700" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="ic_fluent_delete_24_filled" fill="currentColor" fill-rule="nonzero">
+                            <path d="M21.5,6 C21.5,6.51283584 21.1139598,6.93550716 20.6166211,6.99327227 L20.5,7 L19.6552587,7 L18.4238627,19.5191927 C18.2853972,20.9269251 17.1015956,22 15.6870698,22 L8.31293022,22 C6.89840444,22 5.71460282,20.9269251 5.57613734,19.5191927 L4.34474133,7 L3.5,7 C2.94771525,7 2.5,6.55228475 2.5,6 C2.5,5.44771525 2.94771525,5 3.5,5 L8.5,5 C8.5,3.06700338 10.0670034,1.5 12,1.5 C13.9329966,1.5 15.5,3.06700338 15.5,5 L20.5,5 C21.0522847,5 21.5,5.44771525 21.5,6 Z M14.25,9.25 C13.8703042,9.25 13.556509,9.53215388 13.5068466,9.89822944 L13.5,10 L13.5,17 L13.5068466,17.1017706 C13.556509,17.4678461 13.8703042,17.75 14.25,17.75 C14.6296958,17.75 14.943491,17.4678461 14.9931534,17.1017706 L15,17 L15,10 L14.9931534,9.89822944 C14.943491,9.53215388 14.6296958,9.25 14.25,9.25 Z M9.75,9.25 C9.37030423,9.25 9.05650904,9.53215388 9.00684662,9.89822944 L9,10 L9,17 L9.00684662,17.1017706 C9.05650904,17.4678461 9.37030423,17.75 9.75,17.75 C10.1296958,17.75 10.443491,17.4678461 10.4931534,17.1017706 L10.5,17 L10.5,10 L10.4931534,9.89822944 C10.443491,9.53215388 10.1296958,9.25 9.75,9.25 Z M12,3.5 C11.1715729,3.5 10.5,4.17157288 10.5,5 L13.5,5 C13.5,4.17157288 12.8284271,3.5 12,3.5 Z"></path>
+                          </g>
                         </g>
-                      </g>
-                    </svg>
-                  </button>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="flex space-x-3 items-start">
-            <div class="flex-col flex items-center justify-center">
-              <div class="w-10 h-10 bg-center rounded-full bg-red-500 mb-2 overflow-hidden"><img class="object-cover" src="img/common/profile.png">
-              </div>
-            </div>
-            <div class="w-full">
-              <p class="text-xxs mb-1 text-gray-800 font-black">ねこえもん</p>
-              <div class="bg-gray-100 rounded-t-lg rounded-br-lg p-3 text-sm mb-2">
-                <p>絶対なりません。</p>
-                <p class="text-xxs text-left text-gray-400">06/13 17:24</p>
-                <div class="flex justify-end space-x-2">
-                  <button class="hover:bg-gray-300 duration-200 trantision rounded-full flex items-center justify-center w-6 h-6">
-                    <svg class="w-3.5 text-gray-700" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 3.747a.75.75 0 0 1 .75-.75h16.504a.75.75 0 0 1 .6 1.2L16.69 9.748l4.164 5.552a.75.75 0 0 1-.6 1.2H4.5v4.749a.75.75 0 0 1-.648.743L3.75 22a.75.75 0 0 1-.743-.648L3 21.249V3.747Z" fill="currentColor"></path>
-                    </svg>
-                  </button>
-                  <button class="hover:bg-gray-300 duration-200 trantision rounded-full flex items-center justify-center w-6 h-6">
-                    <svg class="w-3.5 text-gray-700" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="ic_fluent_delete_24_filled" fill="currentColor" fill-rule="nonzero">
-                          <path d="M21.5,6 C21.5,6.51283584 21.1139598,6.93550716 20.6166211,6.99327227 L20.5,7 L19.6552587,7 L18.4238627,19.5191927 C18.2853972,20.9269251 17.1015956,22 15.6870698,22 L8.31293022,22 C6.89840444,22 5.71460282,20.9269251 5.57613734,19.5191927 L4.34474133,7 L3.5,7 C2.94771525,7 2.5,6.55228475 2.5,6 C2.5,5.44771525 2.94771525,5 3.5,5 L8.5,5 C8.5,3.06700338 10.0670034,1.5 12,1.5 C13.9329966,1.5 15.5,3.06700338 15.5,5 L20.5,5 C21.0522847,5 21.5,5.44771525 21.5,6 Z M14.25,9.25 C13.8703042,9.25 13.556509,9.53215388 13.5068466,9.89822944 L13.5,10 L13.5,17 L13.5068466,17.1017706 C13.556509,17.4678461 13.8703042,17.75 14.25,17.75 C14.6296958,17.75 14.943491,17.4678461 14.9931534,17.1017706 L15,17 L15,10 L14.9931534,9.89822944 C14.943491,9.53215388 14.6296958,9.25 14.25,9.25 Z M9.75,9.25 C9.37030423,9.25 9.05650904,9.53215388 9.00684662,9.89822944 L9,10 L9,17 L9.00684662,17.1017706 C9.05650904,17.4678461 9.37030423,17.75 9.75,17.75 C10.1296958,17.75 10.443491,17.4678461 10.4931534,17.1017706 L10.5,17 L10.5,10 L10.4931534,9.89822944 C10.443491,9.53215388 10.1296958,9.25 9.75,9.25 Z M12,3.5 C11.1715729,3.5 10.5,4.17157288 10.5,5 L13.5,5 C13.5,4.17157288 12.8284271,3.5 12,3.5 Z"></path>
-                        </g>
-                      </g>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
         <div class="w-full">
           <p class="text-sm font-bold mb-2">商品へのコメント</p>
