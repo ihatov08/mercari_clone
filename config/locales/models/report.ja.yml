@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      report:
+        user: ユーザー
+        comment: コメント
+        report_reason: 報告理由
+        body: 報告理由の詳細
+    models:
+      report: 通報
