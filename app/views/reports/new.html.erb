@@ -2,6 +2,7 @@
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">コメントの報告</h1>
     <%= form_with model: @report, url: comment_reports_path(@comment) do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @report } %>
       <div class="text-left">
         <div class="mb-8">
           <%= f.label :report_reason, class: "block text-grey-500 text-sm font-bold mb-2" %>
