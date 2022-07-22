@@ -4,29 +4,19 @@
     <%= form_with model: @report, url: comment_reports_path(@comment) do |f| %>
       <div class="text-left">
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">報告理由
-          </label>
-          <select class="w-full text-black p-3 undefined border border-[#CDD6DD]">
-            <option>選択してください</option>
-            <option>暴言・脅迫</option>
-            <option>誹謗中傷</option>
-            <option>直接取引・交換・半交換</option>
-            <option>個人情報の公開</option>
-            <option>外部サイトへの誘導</option>
-            <option>その他</option>
-          </select>
+          <%= f.label :report_reason, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.collection_select :report_reason_id, ReportReason.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
         </div>
       </div>
       <div class="text-left">
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">報告理由の詳細
-          </label>
-          <textarea class="border border-gray-300 rounded py-2 px-3 text-grey-darker h-32 w-full" placeholder=""></textarea>
+          <%= f.label :body, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_area :body, class: "border border-gray-300 rounded py-2 px-3 text-grey-darker h-32 w-full" %>
         </div>
       </div>
       <div class="md:w-10/12 mx-auto">
         <div class="text-center mb-2 flex flex-col space-y-4">
-          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">事務局に報告する</button>
+          <%= f.submit "事務局に報告する", class: "text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" %>
         </div>
       </div>
     <% end %>
