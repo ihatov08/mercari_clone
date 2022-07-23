@@ -9,63 +9,49 @@
     <%= form_with model: @shipping_address, url: item_shipping_addresses_path(@item) do |f| %>
       <div class="text-left">
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">姓（全角）
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="例）売買">
+          <%= f.label :family_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :family_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">名（全角）
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="例）太郎">
+          <%= f.label :given_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :given_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">姓カナ（全角）
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="例）ウリカイ">
+          <%= f.label :family_name_kana, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :family_name_kana, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">名カナ（全角）
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="例）タロウ">
+          <%= f.label :given_name_kana, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :given_name_kana, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">郵便番号
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="0201234">
+          <%= f.label :postal_code, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :postal_code, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">都道府県
-          </label>
-          <select class="w-full text-black p-3 undefined border border-[#CDD6DD]">
-            <option>選択してください</option>
-            <option>岩手県</option>
-            <option>東京都</option>
-          </select>
+          <%= f.label :prefecture_id, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">市区町村
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="盛岡市">
+          <%= f.label :city, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :city, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">住所
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="下米内">
+          <%= f.label :line, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :line, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">建物名
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="テラスハウス">
+          <%= f.label :building_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :building_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">電話番号
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="09012345678">
+          <%= f.label :phone_number, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :phone_number, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
         </div>
       </div>
-      <div>
+      <div class="text-left mt-12">
         <div class="text-center mb-2 flex flex-col space-y-4">
-          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">登録する</button>
+          <%= f.submit class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm" %>
         </div>
       </div>
     <% end %>
