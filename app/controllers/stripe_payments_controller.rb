@@ -6,6 +6,11 @@ class StripePaymentsController < ApplicationController
   end
 
   def new
+    @setup_intent =
+    Stripe::SetupIntent.create(
+      customer: current_user.stripe_customer.stripe_customer_id,
+      payment_method_types: ['card'],
+      )
   end
 
   def create
