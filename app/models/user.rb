@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :shipping_addresses, dependent: :destroy
 
   enum gender: {
       unanswered: 0,

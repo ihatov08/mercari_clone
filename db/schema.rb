@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_23_061829) do
+ActiveRecord::Schema.define(version: 2022_07_23_105809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,24 @@ ActiveRecord::Schema.define(version: 2022_07_23_061829) do
     t.index ["comment_id"], name: "index_reports_on_comment_id"
     t.index ["report_reason_id"], name: "index_reports_on_report_reason_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "family_name", null: false
+    t.string "given_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "given_name_kana", null: false
+    t.string "postal_code", null: false
+    t.bigint "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "line", null: false
+    t.string "building_name", null: false
+    t.string "phone_number", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["prefecture_id"], name: "index_shipping_addresses_on_prefecture_id"
+    t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
   end
 
   create_table "shipping_day_types", force: :cascade do |t|
@@ -209,6 +227,8 @@ ActiveRecord::Schema.define(version: 2022_07_23_061829) do
   add_foreign_key "reports", "comments"
   add_foreign_key "reports", "report_reasons"
   add_foreign_key "reports", "users"
+  add_foreign_key "shipping_addresses", "prefectures"
+  add_foreign_key "shipping_addresses", "users"
   add_foreign_key "stripe_customers", "users"
   add_foreign_key "stripe_payments", "stripe_customers"
   add_foreign_key "user_informations", "users"
