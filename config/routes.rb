@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy], shallow: true do
       resources :reports, only: %i[new create]
     end
+    resources :stripe_payments
   end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
