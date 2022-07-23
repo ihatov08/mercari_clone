@@ -1,7 +1,8 @@
 <main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">クレジットカードの追加</h1>
-    <form action="" mehod="">
+    <form id="payment-form">
+      <div id="error-message" class="bg-red-100 booder-t border-t border-red-100 text-red-700 px-4 py-3 hidden"></div>
       <div class="text-left"></div>
       <div class="text-left bg-gray-100 p-4 mb-6">
         <p class="text-sm">利用可能なクレジットカード</p>
@@ -13,19 +14,7 @@
       </div>
       <div class="text-left">
         <div class="mb-6">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">カード番号
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="0000 0000 000 0000">
-        </div>
-        <div class="mb-6">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">有効期限
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="MM/YY">
-        </div>
-        <div class="mb-6">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">セキュリティコード
-          </label>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="例）123">
+          <div id="payment-element">
         </div>
       </div>
       <div class="text-left mt-12">
