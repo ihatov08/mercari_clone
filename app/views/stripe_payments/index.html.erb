@@ -2,6 +2,7 @@
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">支払い方法</h1>
     <%= form_with url: item_current_stripe_payment_path(@item), method: :patch do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @current_stripe_payemnt } if @current_stripe_payemnt %>
       <div class="text-left">
         <% current_user.stripe_customer.stripe_payments.each do |stripe_payment| %>
           <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
