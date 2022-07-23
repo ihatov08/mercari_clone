@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get "stripe_payments/create" => "stripe_payments#create", as: :get_create_stripe_payments
     resource :current_stripe_payment, only: %i[update]
     resources :shipping_addresses
+    resource :current_shipping_address, only: %i[update]
   end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
