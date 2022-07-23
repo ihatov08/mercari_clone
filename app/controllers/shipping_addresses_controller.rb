@@ -22,6 +22,7 @@ class ShippingAddressesController < ApplicationController
   end
 
   def edit
+    @shipping_address = current_user.shipping_addresses.find(params[:id])
   end
 
   def update
