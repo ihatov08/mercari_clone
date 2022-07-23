@@ -1,13 +1,13 @@
 <main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">支払い方法</h1>
-    <form action="" mehod="">
+    <%= form_with url: item_current_stripe_payment_path(@item), method: :patch do |f| %>
       <div class="text-left">
         <% current_user.stripe_customer.stripe_payments.each do |stripe_payment| %>
           <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
             <div class="flex-grow">
               <div class="flex items-center">
-                <input type="radio">
+                <%= f.radio_button :stripe_payment_id, stripe_payment.id %>
                 <div class="flex items-center">
                   <%= image_tag "#{stripe_payment.brand}.svg", class: "h-6 flex-none flex-0 mr-4" %>
                 </div>
@@ -26,9 +26,9 @@
       </div>
       <div class="text-left mt-6">
         <div class="text-center mb-2 flex flex-col space-y-4">
-          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">更新する</button>
+          <%= f.submit "更新する", class: "text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" %>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </main>
