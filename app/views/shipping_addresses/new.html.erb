@@ -7,6 +7,7 @@
       </div>
     </div>
     <%= form_with model: @shipping_address, url: item_shipping_addresses_path(@item) do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @shipping_address } %>
       <div class="text-left">
         <div class="mb-8">
           <%= f.label :family_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
