@@ -1,4 +1,41 @@
-<div>
-  <h1 class="font-bold text-4xl">ShippingAddresses#index</h1>
-  <p>Find me in app/views/shipping_addresses/index.html.erb</p>
-</div>
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
+  <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
+    <h1 class="font-black mb-8 text-2xl">住所一覧</h1>
+    <form action="" mehod="">
+      <div class="text-left">
+        <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
+          <div class="flex-grow">
+            <div class="flex items-center">
+              <input type="radio">
+              <p>売買太郎<br />〒100-0000<br />東京都品川区XXXXXX</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base mr-2">編集</button>
+            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
+          </div>
+        </div>
+        <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
+          <div class="flex-grow">
+            <div class="flex items-center">
+              <input type="radio">
+              <p>売買花子<br />〒693-0000<br />島根県松江市XXXX</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base mr-2 hover:bg-red-500 hover:text-white">編集</button>
+            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
+          </div>
+        </div>
+        <button class="flex items-center text-sm text-blue-500 hover:opacity-80">
+          <div class="rounded-full w-4 h-4 border border-blue-500 flex items-center justify-center mr-1">＋</div><span>新しい住所を登録する</span>
+        </button>
+      </div>
+      <div class="text-left mt-6">
+        <div class="text-center mb-2 flex flex-col space-y-4">
+          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">更新する</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
