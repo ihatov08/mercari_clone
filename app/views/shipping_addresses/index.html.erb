@@ -3,30 +3,20 @@
     <h1 class="font-black mb-8 text-2xl">住所一覧</h1>
     <%= form_with url: item_current_shipping_address_path(@item), method: :patch do |f| %>
       <div class="text-left">
-        <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
-          <div class="flex-grow">
+        <% current_user.shipping_addresses.each do |shipping_address| %>
+          <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
+            <div class="flex-grow">
+              <div class="flex items-center">
+                <input type="radio">
+                <p><%= shipping_address.full_name %><br />〒<%= shipping_address.display_postal_code %><br /><%= shipping_address.address %></p>
+              </div>
+            </div>
             <div class="flex items-center">
-              <input type="radio">
-              <p>売買太郎<br />〒100-0000<br />東京都品川区XXXXXX</p>
+              <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base mr-2 hover:bg-red-500 hover:text-white">編集</button>
+              <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
             </div>
           </div>
-          <div class="flex items-center">
-            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base mr-2">編集</button>
-            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
-          </div>
-        </div>
-        <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
-          <div class="flex-grow">
-            <div class="flex items-center">
-              <input type="radio">
-              <p>売買花子<br />〒693-0000<br />島根県松江市XXXX</p>
-            </div>
-          </div>
-          <div class="flex items-center">
-            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base mr-2 hover:bg-red-500 hover:text-white">編集</button>
-            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
-          </div>
-        </div>
+        <% end %>
         <button class="flex items-center text-sm text-blue-500 hover:opacity-80">
           <div class="rounded-full w-4 h-4 border border-blue-500 flex items-center justify-center mr-1">＋</div><span>新しい住所を登録する</span>
         </button>
