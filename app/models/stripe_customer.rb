@@ -3,8 +3,8 @@ class StripeCustomer < ApplicationRecord
 
   has_many :stripe_payments, dependent: :destroy
 
-  validates :stripe_customer_id, presence: true
-  validates :stripe_customer_id, uniqueness: true
+  validates :customer_id, presence: true
+  validates :customer_id, uniqueness: true
 
   before_validation :create_stripe_customer, if: :new_record?
 
