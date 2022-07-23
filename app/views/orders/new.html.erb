@@ -4,13 +4,13 @@
       <h1 class="font-black mb-8 text-2xl">購入内容の確認</h1>
       <div class="text-left">
         <div class="flex space-x-4 items-center border-t border-b border-gray-300 py-4 mb-4">
-          <img class="w-16 border border-gray-300" src="img/dummy/saifu.jpg">
+          <%= image_tag @item.images.first.url, class: "w-16 border border-gray-300" %>
           <div>
-            <p>可愛いがまぐち財布</p>
+            <p><%= @item.name %></p>
             <p class="text-sm">
-              <span class="font-bold">¥360</span>
+              <span class="font-bold"><%= number_to_currency(@item.price) %></span>
               <span class="text-xs">(税込)</span>
-              <span class="text-xs ml-2">送料込み</span>
+              <span class="text-xs ml-2"><%= @item.shipping_payer_type.name %></span>
             </p>
           </div>
         </div>
@@ -58,12 +58,12 @@
       <div class="border border-gray-300 p-4">
         <div class="flex justify-between text-sm">
           <p class="font-bold">商品の価格</p>
-          <p>¥360</p>
+          <p><%= number_to_currency(@item.price) %></p>
         </div>
         <hr class="my-4">
         <div class="flex justify-between text-sm mb-4">
           <p class="font-bold">支払い金額</p>
-          <p class="text-2xl font-black">¥360</p>
+          <p class="text-2xl font-black"><%= number_to_currency(@item.price) %></p>
         </div>
         <div class="flex justify-between text-sm">
           <p class="font-bold">支払い方法</p>
