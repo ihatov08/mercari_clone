@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_23_002637) do
+ActiveRecord::Schema.define(version: 2022_07_23_003840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,18 @@ ActiveRecord::Schema.define(version: 2022_07_23_002637) do
     t.index ["user_id"], name: "index_stripe_customers_on_user_id", unique: true
   end
 
+  create_table "stripe_payments", force: :cascade do |t|
+    t.bigint "stripe_customer_id", null: false
+    t.string "payment_id", null: false
+    t.string "brand", null: false
+    t.integer "exp_month", null: false
+    t.integer "exp_year", null: false
+    t.string "last4", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stripe_customer_id"], name: "index_stripe_payments_on_stripe_customer_id"
+  end
+
   create_table "user_informations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "family_name", null: false
@@ -187,6 +199,7 @@ ActiveRecord::Schema.define(version: 2022_07_23_002637) do
   add_foreign_key "reports", "report_reasons"
   add_foreign_key "reports", "users"
   add_foreign_key "stripe_customers", "users"
+  add_foreign_key "stripe_payments", "stripe_customers"
   add_foreign_key "user_informations", "users"
   add_foreign_key "user_mobile_phones", "users"
 end
