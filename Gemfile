@@ -34,6 +34,7 @@ gem 'twilio-ruby'
 gem 'irb', '>= 1.3.6'
 gem 'seed-fu'
 gem 'carrierwave'
+gem 'stripe'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
