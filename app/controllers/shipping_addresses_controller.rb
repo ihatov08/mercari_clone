@@ -1,6 +1,6 @@
 class ShippingAddressesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: %i[index new create]
+  before_action :set_item, only: %i[index new create edit update]
 
   def index
     @shipping_addresses = current_user.shipping_addresses
