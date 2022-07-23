@@ -1,4 +1,38 @@
-<div>
-  <h1 class="font-bold text-4xl">StripePayments#new</h1>
-  <p>Find me in app/views/stripe_payments/new.html.erb</p>
-</div>
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
+  <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
+    <h1 class="font-black mb-8 text-2xl">クレジットカードの追加</h1>
+    <form action="" mehod="">
+      <div class="text-left"></div>
+      <div class="text-left bg-gray-100 p-4 mb-6">
+        <p class="text-sm">利用可能なクレジットカード</p>
+        <ul class="flex mt-2 space-x-2">
+          <li><img class="w-8 bg-white border" src="img/common/payment/visa.svg"></li>
+          <li><img class="w-8 bg-white border" src="img/common/payment/master.svg"></li>
+          <li><img class="w-8 bg-white border" src="img/common/payment/jcb.svg"></li>
+        </ul>
+      </div>
+      <div class="text-left">
+        <div class="mb-6">
+          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">カード番号
+          </label>
+          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="0000 0000 000 0000">
+        </div>
+        <div class="mb-6">
+          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">有効期限
+          </label>
+          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="MM/YY">
+        </div>
+        <div class="mb-6">
+          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">セキュリティコード
+          </label>
+          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="例）123">
+        </div>
+      </div>
+      <div class="text-left mt-12">
+        <div class="text-center mb-2 flex flex-col space-y-4">
+          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">更新する</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
