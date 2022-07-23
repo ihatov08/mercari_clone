@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      current_shipping_address:
+        shipping_address: 配送先住所
+    models:
+      current_shipping_address: 配送先住所
