@@ -223,6 +223,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
+    stripe (6.5.0)
     tailwindcss-rails (2.0.10-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -281,6 +282,7 @@ DEPENDENCIES
   seed-fu
   selenium-webdriver
   spring
+  stripe
   tailwindcss-rails
   turbolinks (~> 5)
   twilio-ruby

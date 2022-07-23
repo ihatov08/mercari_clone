@@ -1,0 +1,69 @@
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
+  <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
+    <h1 class="font-black mb-8 text-2xl">クレジットカードの追加</h1>
+    <form id="payment-form">
+      <div id="error-message" class="bg-red-100 booder-t border-t border-red-100 text-red-700 px-4 py-3 hidden"></div>
+      <div class="text-left"></div>
+      <div class="text-left bg-gray-100 p-4 mb-6">
+        <p class="text-sm">利用可能なクレジットカード</p>
+        <ul class="flex mt-2 space-x-2">
+          <li><%= image_tag "visa.svg", class: "w-8 bg-white border" %></li>
+          <li><%= image_tag "master.svg", class: "w-8 bg-white border" %></li>
+          <li><%= image_tag "jcb.svg", class: "w-8 bg-white border" %></li>
+        </ul>
+      </div>
+      <div class="text-left">
+        <div class="mb-6">
+          <div id="payment-element">
+        </div>
+      </div>
+      <div class="text-left mt-12">
+        <div class="text-center mb-2 flex flex-col space-y-4">
+          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">更新する</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script>
+  const stripe = Stripe("<%= ENV["STRIPE_PUBLISHABLE_API_KEY"] %>");
+  const options = {
+    clientSecret: "<%= @setup_intent.client_secret %>",
+  };
+
+  // Set up Stripe.js and Elements to use in checkout form, passing the client secret obtained in step 2
+  const elements = stripe.elements(options);
+
+  // Create and mount the Payment Element
+  const paymentElement = elements.create('payment');
+  paymentElement.mount('#payment-element');
+
+  const form = document.getElementById('payment-form');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const {error} = await stripe.confirmSetup({
+      //`Elements` instance that was used to create the Payment Element
+      elements,
+      confirmParams: {
+        return_url: "<%= item_get_create_stripe_payments_url(@item) %>",
+      }
+    });
+
+    if (error) {
+      // This point will only be reached if there is an immediate error when
+      // confirming the payment. Show error to your customer (for example, payment
+      // details incomplete)
+      const messageContainer = document.querySelector('#error-message');
+      messageContainer.style.display = "block"
+      messageContainer.textContent = error.message;
+    } else {
+      messageContainer.style.display = "none"
+      // Your customer will be redirected to your `return_url`. For some payment
+      // methods like iDEAL, your customer will be redirected to an intermediate
+      // site first to authorize the payment, then redirected to the `return_url`.
+    }
+  });
+</script>
