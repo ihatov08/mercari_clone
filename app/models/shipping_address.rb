@@ -17,4 +17,16 @@ class ShippingAddress < ApplicationRecord
   validates :city, presence: true
   validates :line, presence: true
   validates :phone_number, presence: true
+
+  def full_name
+    "#{family_name} #{given_name}"
+  end
+
+  def display_postal_code
+    postal_code.insert(3, '-')
+  end
+
+  def address
+    "#{prefecture.name}#{city}#{line}#{building_name}"
+  end
 end
