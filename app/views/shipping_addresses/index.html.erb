@@ -1,7 +1,7 @@
 <main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">住所一覧</h1>
-    <form action="" mehod="">
+    <%= form_with url: item_current_shipping_address_path(@item), method: :patch do |f| %>
       <div class="text-left">
         <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
           <div class="flex-grow">
@@ -36,6 +36,6 @@
           <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">更新する</button>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </main>
