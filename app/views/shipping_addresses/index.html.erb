@@ -7,7 +7,7 @@
           <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
             <div class="flex-grow">
               <div class="flex items-center">
-                <input type="radio">
+                <%= f.radio_button :shipping_address_id, shipping_address.id, checked: current_user.current_shipping_address&.id == shipping_address.id %>
                 <p><%= shipping_address.full_name %><br />〒<%= shipping_address.display_postal_code %><br /><%= shipping_address.address %></p>
               </div>
             </div>
@@ -23,7 +23,7 @@
       </div>
       <div class="text-left mt-6">
         <div class="text-center mb-2 flex flex-col space-y-4">
-          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">更新する</button>
+          <%= f.submit "更新する", class: "text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" %>
         </div>
       </div>
     <% end %>
