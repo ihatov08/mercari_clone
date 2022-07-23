@@ -1,4 +1,32 @@
-<div>
-  <h1 class="font-bold text-4xl">ShippingAddresses#index</h1>
-  <p>Find me in app/views/shipping_addresses/index.html.erb</p>
-</div>
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
+  <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
+    <h1 class="font-black mb-8 text-2xl">住所一覧</h1>
+    <%= form_with url: item_current_shipping_address_path(@item), method: :patch do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @current_shipping_address } if @current_shipping_address %>
+      <div class="text-left">
+        <% current_user.shipping_addresses.each do |shipping_address| %>
+          <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
+            <div class="flex-grow">
+              <div class="flex items-center">
+                <%= f.radio_button :shipping_address_id, shipping_address.id, checked: current_user.current_shipping_address&.id == shipping_address.id %>
+                <p><%= shipping_address.full_name %><br />〒<%= shipping_address.display_postal_code %><br /><%= shipping_address.address %></p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base mr-2 hover:bg-red-500 hover:text-white">編集</button>
+              <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
+            </div>
+          </div>
+        <% end %>
+        <%= link_to new_item_shipping_address_path(@item), class: "flex items-center text-sm text-blue-500 hover:opacity-80" do %>
+          <div class="rounded-full w-4 h-4 border border-blue-500 flex items-center justify-center mr-1">＋</div><span>新しい住所を登録する</span>
+        <% end %>
+      </div>
+      <div class="text-left mt-6">
+        <div class="text-center mb-2 flex flex-col space-y-4">
+          <%= f.submit "更新する", class: "text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>

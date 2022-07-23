@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_23_105809) do
+ActiveRecord::Schema.define(version: 2022_07_23_142439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2022_07_23_105809) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_comments_on_item_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "current_shipping_addresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "shipping_address_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shipping_address_id"], name: "index_current_shipping_addresses_on_shipping_address_id"
+    t.index ["user_id", "shipping_address_id"], name: "current_shipping_addresses_user_shipping_address_unique", unique: true
+    t.index ["user_id"], name: "index_current_shipping_addresses_on_user_id"
   end
 
   create_table "current_stripe_payments", force: :cascade do |t|
@@ -214,6 +224,8 @@ ActiveRecord::Schema.define(version: 2022_07_23_105809) do
 
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
+  add_foreign_key "current_shipping_addresses", "shipping_addresses"
+  add_foreign_key "current_shipping_addresses", "users"
   add_foreign_key "current_stripe_payments", "stripe_customers"
   add_foreign_key "current_stripe_payments", "stripe_payments"
   add_foreign_key "favorites", "items"
