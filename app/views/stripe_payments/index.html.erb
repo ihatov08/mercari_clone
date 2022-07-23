@@ -19,10 +19,10 @@
             </div>
           </div>
         <% end %>
-        <button class="flex items-center text-sm text-blue-500 hover:opacity-80">
+        <%= link_to new_item_stripe_payment_path(@item), class: "flex items-center text-sm text-blue-500 hover:opacity-80" do %>
           <div class="rounded-full w-4 h-4 border border-blue-500 flex items-center justify-center mr-1">+</div>
           <span>クレジットカードを追加</span>
-        </button>
+        <% end %>
       </div>
       <div class="text-left mt-6">
         <div class="text-center mb-2 flex flex-col space-y-4">
