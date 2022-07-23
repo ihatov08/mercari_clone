@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      current_stripe_payment:
+        stripe_payment: カード情報
+    models:
+      current_stripe_payment: カード情報
