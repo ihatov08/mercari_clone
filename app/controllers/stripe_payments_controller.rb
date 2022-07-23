@@ -40,6 +40,11 @@ class StripePaymentsController < ApplicationController
   end
 
   def destroy
+    stripe_payment = current_user.stripe_customer.stripe_payments.find(params[:id])
+
+    stripe_payment.destroy
+
+    redirect_to item_stripe_payments_path(@item), notice: "カード情報の削除に成功しました"
   end
 
   private
