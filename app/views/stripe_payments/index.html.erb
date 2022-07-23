@@ -3,32 +3,22 @@
     <h1 class="font-black mb-8 text-2xl">支払い方法</h1>
     <form action="" mehod="">
       <div class="text-left">
-        <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
-          <div class="flex-grow">
-            <div class="flex items-center">
-              <input type="radio">
+        <% current_user.stripe_customer.stripe_payments.each do |stripe_payment| %>
+          <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
+            <div class="flex-grow">
               <div class="flex items-center">
-                <img class="h-6 flex-none flex-0 mr-4" src="img/common/payment/master.svg"></div>
-                <p>クレジットカード<br />************4020 08/25<br />(手数料 ¥0)</p>
+                <input type="radio">
+                <div class="flex items-center">
+                  <%= image_tag "#{stripe_payment.brand}.svg", class: "h-6 flex-none flex-0 mr-4" %>
+                </div>
+                <p>クレジットカード<br />**** **** **** <%= stripe_payment.last4 %> <%= stripe_payment.exp_month %>/<%= stripe_payment.exp_year %></p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
             </div>
           </div>
-          <div class="flex items-center">
-            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
-          </div>
-        </div>
-        <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
-          <div class="flex-grow">
-            <div class="flex items-center">
-              <input type="radio">
-              <div class="flex items-center">
-                <img class="h-6 flex-none flex-0 mr-4" src="img/common/payment/visa.svg"></div>
-                <p>クレジットカード<br />************4020 08/25<br />(手数料 ¥0)</p>
-            </div>
-          </div>
-          <div class="flex items-center">
-            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
-          </div>
-        </div>
+        <% end %>
         <button class="flex items-center text-sm text-blue-500 hover:opacity-80">
           <div class="rounded-full w-4 h-4 border border-blue-500 flex items-center justify-center mr-1">+</div>
           <span>クレジットカードを追加</span>
