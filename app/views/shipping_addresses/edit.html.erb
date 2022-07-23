@@ -1,4 +1,13 @@
-<div>
-  <h1 class="font-bold text-4xl">ShippingAddresses#edit</h1>
-  <p>Find me in app/views/shipping_addresses/edit.html.erb</p>
-</div>
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
+  <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
+    <h1 class="font-black mb-4 text-2xl">配送先住所の更新</h1>
+    <div class="text-left mb-8">
+      <div class="text-sm text-gray-600 mb-8">
+        <p>安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。</p>
+      </div>
+    </div>
+    <%= form_with model: @shipping_address, url: item_shipping_address_path(@item) do |f| %>
+      <%= render partial: "form", locals: { shipping_address: @shipping_address, f: f } %>
+    <% end %>
+  </div>
+</main>

@@ -7,54 +7,7 @@
       </div>
     </div>
     <%= form_with model: @shipping_address, url: item_shipping_addresses_path(@item) do |f| %>
-      <%= render partial: "shared/error_messages", locals: { resource: @shipping_address } %>
-      <div class="text-left">
-        <div class="mb-8">
-          <%= f.label :family_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.text_field :family_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
-        </div>
-        <div class="mb-8">
-          <%= f.label :given_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.text_field :given_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
-        </div>
-        <div class="mb-8">
-          <%= f.label :family_name_kana, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.text_field :family_name_kana, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
-        </div>
-        <div class="mb-8">
-          <%= f.label :given_name_kana, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.text_field :given_name_kana, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
-        </div>
-        <div class="mb-8">
-          <%= f.label :postal_code, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.text_field :postal_code, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
-        </div>
-        <div class="mb-8">
-          <%= f.label :prefecture, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: true }, class: "w-full text-black p-3 undefined border border-[#CDD6DD]" %>
-        </div>
-        <div class="mb-8">
-          <%= f.label :city, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.text_field :city, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
-        </div>
-        <div class="mb-8">
-          <%= f.label :line, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.text_field :line, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
-        </div>
-        <div class="mb-8">
-          <%= f.label :building_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.text_field :building_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
-        </div>
-        <div class="mb-8">
-          <%= f.label :phone_number, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <%= f.text_field :phone_number, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
-        </div>
-      </div>
-      <div class="text-left mt-12">
-        <div class="text-center mb-2 flex flex-col space-y-4">
-          <%= f.submit class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm" %>
-        </div>
-      </div>
+      <%= render partial: "form", locals: { shipping_address: @shipping_address, f: f } %>
     <% end %>
   </div>
 </main>
