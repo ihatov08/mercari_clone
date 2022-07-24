@@ -33,7 +33,9 @@
               </div>
               <p>クレジットカード<br />**** **** **** <%= stripe_payment.last4 %> <%= stripe_payment.exp_month %>/<%= stripe_payment.exp_year %></p>
             </div>
-            <p class="text-red-500 mt-2 text-sm">クレジットカードの有効期限が切れています。他の支払い方法を選択してください。</p>
+            <% if stripe_payment.expired? %>
+              <p class="text-red-500 mt-2 text-sm">クレジットカードの有効期限が切れています。他の支払い方法を選択してください。</p>
+            <% end %>
           <% else %>
             <p class="text-red-500 mt-2 text-sm">クレジットカードを選択してください</p>
           <% end %>
