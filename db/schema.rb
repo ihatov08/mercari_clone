@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_23_142439) do
+ActiveRecord::Schema.define(version: 2022_07_24_235452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,27 @@ ActiveRecord::Schema.define(version: 2022_07_23_142439) do
     t.index ["shipping_day_type_id"], name: "index_items_on_shipping_day_type_id"
     t.index ["shipping_payer_type_id"], name: "index_items_on_shipping_payer_type_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.integer "status", default: 10, null: false
+    t.string "payment_method_id", null: false
+    t.string "payer_family_name", null: false
+    t.string "payer_given_name", null: false
+    t.string "payer_family_name_kana", null: false
+    t.string "payer_given_name_kana", null: false
+    t.string "payer_postal_code", null: false
+    t.string "payer_prefecture_id", null: false
+    t.string "payer_city", null: false
+    t.string "payer_line", null: false
+    t.string "payer_building_name", null: false
+    t.string "payer_phone_number", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_orders_on_item_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "prefectures", force: :cascade do |t|
@@ -236,6 +257,8 @@ ActiveRecord::Schema.define(version: 2022_07_23_142439) do
   add_foreign_key "items", "shipping_day_types"
   add_foreign_key "items", "shipping_payer_types"
   add_foreign_key "items", "users"
+  add_foreign_key "orders", "items"
+  add_foreign_key "orders", "users"
   add_foreign_key "reports", "comments"
   add_foreign_key "reports", "report_reasons"
   add_foreign_key "reports", "users"
