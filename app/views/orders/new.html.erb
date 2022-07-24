@@ -26,13 +26,17 @@
             </svg>
           <% end %>
           <h3 class="text-lg font-black mb-4">支払い方法</h3>
-          <div class="flex text-sm space-x-4">
-            <div class="flex items-center">
-              <img class="h-6 flex-none flex-0" src="img/common/payment/visa.svg">
+          <% if stripe_payment = current_user.stripe_customer.current_stripe_payment&.stripe_payment %>
+            <div class="flex text-sm space-x-4">
+              <div class="flex items-center">
+                <%= image_tag "#{stripe_payment.brand}.svg", class: "h-6 flex-none flex-0" %>
+              </div>
+              <p>クレジットカード<br />**** **** **** <%= stripe_payment.last4 %> <%= stripe_payment.exp_month %>/<%= stripe_payment.exp_year %></p>
             </div>
-            <p>クレジットカード<br />************4020 08/25</p>
-          </div>
-          <p class="text-red-500 mt-2 text-sm">クレジットカードの有効期限が切れています。他の支払い方法を選択してください。</p>
+            <p class="text-red-500 mt-2 text-sm">クレジットカードの有効期限が切れています。他の支払い方法を選択してください。</p>
+          <% else %>
+            <p class="text-red-500 mt-2 text-sm">クレジットカードを選択してください</p>
+          <% end %>
         </div>
         <div class="border-b border-gray-200 mb-4 p-4 rounded-sm relative">
           <button class="mt-1 mr-1 absolute right-0 top-0 ml-auto flex items-center text-sm text-blue-500 hover:opacity-80"><span>編集する</span>
