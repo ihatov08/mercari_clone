@@ -52,7 +52,7 @@
         <% if @item.user == current_user %>
           <%= link_to "編集する", edit_item_path(@item), class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center" %>
         <% else %>
-          <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">購入手続きへ</button>
+          <%= link_to "購入手続きへ", new_item_order_path(@item), class: "text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm text-center" %>
         <% end %>
       </div>
       <div class="mb-8" id="description">
