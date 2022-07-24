@@ -41,7 +41,8 @@
           <% end %>
         </div>
         <div class="border-b border-gray-200 mb-4 p-4 rounded-sm relative">
-          <button class="mt-1 mr-1 absolute right-0 top-0 ml-auto flex items-center text-sm text-blue-500 hover:opacity-80"><span>編集する</span>
+          <%= link_to item_shipping_addresses_path(@item), class: "mt-1 mr-1 absolute right-0 top-0 ml-auto flex items-center text-sm text-blue-500 hover:opacity-80" do %>
+            <span>編集する</span>
             <svg class="w-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.964 8.965">
               <g id="_4352" data-name=" 4352" transform="translate(-853.234 -789.186)">
                 <g id="_4351" data-name=" 4351">
@@ -49,7 +50,7 @@
                 </g>
               </g>
             </svg>
-          </button>
+          <% end %>
           <h3 class="text-lg font-black mb-4">配送先</h3>
           <div class="flex text-sm space-x-4">
             <p>売買太郎<br />〒100-0001<br />東京都品川区XXXXX</p>
