@@ -8,4 +8,11 @@ class StripePayment < ApplicationRecord
   validates :exp_month, presence: true
   validates :exp_year, presence: true
   validates :last4, presence: true
+
+  def expired?
+    Date
+      .new(exp_year, exp_month)
+      .end_of_month
+      .past?
+  end
 end
