@@ -2,6 +2,13 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :item
 
+  enum status: {
+    ordered: 10,
+    shipped: 20,
+    received: 30,
+    completed: 40
+  }
+
   validates :status, presence: true
   validates :payment_method_id, presence: true
   validates :payer_family_name, presence: true
