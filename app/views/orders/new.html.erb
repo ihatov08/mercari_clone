@@ -52,9 +52,13 @@
             </svg>
           <% end %>
           <h3 class="text-lg font-black mb-4">配送先</h3>
+          <% if shipping_address = current_user.current_shipping_address&.shipping_address %>
           <div class="flex text-sm space-x-4">
-            <p>売買太郎<br />〒100-0001<br />東京都品川区XXXXX</p>
+            <p><%= shipping_address.full_name %><br />〒<%= shipping_address.display_postal_code %><br /><%= shipping_address.address %></p>
           </div>
+          <% else %>
+            <p class="text-red-500 mt-2 text-sm">配送先住所を選択してください</p>
+          <% end %>
         </div>
       </div>
       <div class="text-left mt-6 px-2">
