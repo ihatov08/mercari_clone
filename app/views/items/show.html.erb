@@ -49,10 +49,14 @@
         </button>
       </div>
       <div class="mb-0 fixed bottom-0 bg-white w-full p-3 md:mb-8 md:p-0 border-t border-gray-300 md:border-none -ml-2 md:ml-0 md:w-auto z-50 md:static" id="button">
-        <% if @item.user == current_user %>
-          <%= link_to "編集する", edit_item_path(@item), class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center" %>
+        <% if @item.order %>
+          <button disabled="true" class= "font-bold bg-gray-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center">売り切れました</button>
         <% else %>
-          <%= link_to "購入手続きへ", new_item_order_path(@item), class: "text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm text-center" %>
+          <% if @item.user == current_user %>
+            <%= link_to "編集する", edit_item_path(@item), class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center" %>
+          <% else %>
+            <%= link_to "購入手続きへ", new_item_order_path(@item), class: "text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm text-center" %>
+          <% end %>
         <% end %>
       </div>
       <div class="mb-8" id="description">
