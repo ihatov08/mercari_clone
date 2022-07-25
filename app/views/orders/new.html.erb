@@ -1,4 +1,5 @@
 <main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
+  <%= render partial: "shared/error_messages", locals: { resource: @order } %>
   <div class="md:flex ">
     <div class="text-left w-full px-4 bg-white md:w-2/3 lg:w-2/3 ">
       <h1 class="font-black mb-8 text-2xl">購入内容の確認</h1>
@@ -81,9 +82,11 @@
           <p>クレジットカード払い</p>
         </div>
       </div>
-      <div class="mt-8 fixed bottom-0 bg-white w-full p-3 md:p-0 border-t border-gray-300 md:border-none -ml-4 md:ml-0 md:w-auto z-50 md:static">
-        <button class="text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" value="">購入する</button>
-      </div>
+      <%= form_with model: @order, url: item_orders_path(@item) do |f| %>
+        <div class="mt-8 fixed bottom-0 bg-white w-full p-3 md:p-0 border-t border-gray-300 md:border-none -ml-4 md:ml-0 md:w-auto z-50 md:static">
+          <%= f.submit "購入する", class: "text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </main>

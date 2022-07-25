@@ -9,6 +9,8 @@ class Item < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_one :order, dependent: :restrict_with_error
+
   validates :images, presence: true
   validates :name, presence: true
   validates :description, presence: true
