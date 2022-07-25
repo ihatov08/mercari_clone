@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @order = Order.new(user: current_user, item: @item)
     if @order.pay!
       UserMailer.notify_ordered(@order).deliver
-      redirect_to @item, notice: "購入に成功しました"
+      redirect_to order_path(@order), notice: "購入に成功しました"
     else
       flash.now.alert = "購入に失敗しました"
       render :new
