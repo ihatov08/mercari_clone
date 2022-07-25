@@ -1,0 +1,12 @@
+<%= @comment.item.user.nickname %>さん
+
+商品にコメントがありました。
+
+■商品情報
+商品ID : <%= @comment.item.id %>
+商品名 : <%= @comment.item.name %>
+商品価格 : <%= number_to_currency(@comment.item.price) %>
+
+<%= @comment.body %>
+
+<%= item_url(@comment.item) %>
