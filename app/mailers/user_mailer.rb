@@ -17,4 +17,11 @@ class UserMailer < ApplicationMailer
     mail to: comment.item.user.email,
          subject: "【URIKAI】#{comment.item.name}にコメントがありました"
   end
+
+  def notify_message(message)
+    @message = message
+
+    mail to: message.recipient.email,
+          subject: "【URIKAI】#{message.order.item.name}に取引メッセージがありました"
+  end
 end

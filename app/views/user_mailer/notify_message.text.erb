@@ -1,0 +1,12 @@
+<%= @message.recipient.nickname %>さん
+
+取引でメッセージがありました。
+
+■商品情報
+商品ID : <%= @message.order.item.id %>
+商品名 : <%= @message.order.item.name %>
+商品価格 : <%= number_to_currency(@message.order.item.price) %>
+
+<%= @message.body %>
+
+<%= order_url(@message.order) %>

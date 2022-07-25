@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
     @message.user_id = current_user.id
 
     if @message.save
+      UserMailer.notify_message(@message).deliver
       redirect_to order_path(@order), notice: "メッセージの作成に成功しました"
     else
       @item = @order.item
