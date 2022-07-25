@@ -1,3 +1,11 @@
-User#notify_ordered
+<%= @order.item.user.nickname %>さん
 
-<%= @greeting %>, find me in app/views/user_mailer/notify_ordered.text.erb
+URIKAIをご利用いただきありがとうございます。
+下記の商品を<%= @order.payer.nickname %>さんが購入しました。
+
+■商品情報
+商品ID : <%= @order.id %>
+商品名 : <%= @order.item.name %>
+商品価格 : <%= number_to_currency(@order.item.price) %>
+
+商品の発送をお願いします。
