@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_24_235452) do
+ActiveRecord::Schema.define(version: 2022_07_25_215251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(version: 2022_07_24_235452) do
     t.index ["shipping_day_type_id"], name: "index_items_on_shipping_day_type_id"
     t.index ["shipping_payer_type_id"], name: "index_items_on_shipping_payer_type_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "user_id", null: false
+    t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_messages_on_order_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -257,6 +267,8 @@ ActiveRecord::Schema.define(version: 2022_07_24_235452) do
   add_foreign_key "items", "shipping_day_types"
   add_foreign_key "items", "shipping_payer_types"
   add_foreign_key "items", "users"
+  add_foreign_key "messages", "orders"
+  add_foreign_key "messages", "users"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
   add_foreign_key "reports", "comments"
