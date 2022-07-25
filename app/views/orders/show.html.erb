@@ -89,8 +89,10 @@
       </div>
       <div>
         <h4 class="text-sm font-bold mb-1">取引メッセージ</h4>
-        <textarea class="border border-gray-300 rounded py-2 px-3 text-grey-darker h-24 w-full"></textarea>
-        <button class="mt-2 text-base font-bold bg-white border-2 border-red-500 text-red-500 p-2 w-full block text-sm py-4 rounded-sm" value="">取引メッセージを送る</button>
+        <%= form_with model: @message, url: order_messages_path(@order) do |f| %>
+          <textarea class="border border-gray-300 rounded py-2 px-3 text-grey-darker h-24 w-full"></textarea>
+          <button class="mt-2 text-base font-bold bg-white border-2 border-red-500 text-red-500 p-2 w-full block text-sm py-4 rounded-sm" value="">取引メッセージを送る</button>
+        <% end %>
         <ul class="text-xs text-gray-700 mt-4">
           <li>※取引メッセージの内容は、不正やトラブル防止のため事務局で確認する場合があります。上記ボタンを押すとこれに同意したものとみなします。</li>
           <li>※お困りの際は<a class="text-blue-500" href="#">よくある質問</a>をご確認ください</li>
