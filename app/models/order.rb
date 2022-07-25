@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
   belongs_to :item
+  belongs_to :payer_prefecture, class_name: "Prefecture"
 
   enum status: {
     ordered: 10,
@@ -48,6 +49,18 @@ class Order < ApplicationRecord
         false
       end
     end
+  end
+
+  def full_name
+    "#{payer_family_name} #{payer_given_name}"
+  end
+
+  def display_postal_code
+    payer_postal_code.insert(3, '-')
+  end
+
+  def address
+    "#{payer_prefecture.name}#{payer_city}#{payer_line}#{payer_building_name}"
   end
 
   private
