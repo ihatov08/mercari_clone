@@ -33,6 +33,9 @@ Rails.application.routes.draw do
     resource :current_shipping_address, only: %i[update]
     resources :orders, only: %i[new create show], shallow: true do
       resources :messages, only: %i[create]
+      member do
+        post :ship
+      end
     end
   end
 
