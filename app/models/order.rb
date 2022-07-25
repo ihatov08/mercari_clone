@@ -3,6 +3,8 @@ class Order < ApplicationRecord
   belongs_to :item
   belongs_to :payer_prefecture, class_name: "Prefecture"
 
+  has_many :messages, dependent: :destroy
+
   enum status: {
     ordered: 10,
     shipped: 20,
