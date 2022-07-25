@@ -57,34 +57,22 @@
       <div>
         <h3 class="font-black mb-6 text-xl text-gray-700">メッセージ</h3>
         <div class="h-full flex flex-col space-y-4 mb-8">
-          <div class="flex space-x-3 items-start">
-            <div class="flex-col flex items-center justify-center">
-              <div class="w-10 h-10 bg-center rounded-full bg-red-500 mb-2 overflow-hidden">
-                <img class="object-cover" src="img/product/41QMntM-txL._AC_.jpg">
+          <% @order.messages.select(&:persisted?).each do |message| %>
+            <div class="flex space-x-3 items-start">
+              <div class="flex-col flex items-center justify-center">
+                <div class="w-10 h-10 bg-center rounded-full bg-red-500 mb-2 overflow-hidden">
+                  <%= image_tag "profile.png", class: "object-cover" %>
+                </div>
+              </div>
+              <div class="w-full">
+                <p class="text-xxs mb-1 text-gray-800 font-black"><%= message.user.nickname %></p>
+                <div class="bg-gray-100 rounded-t-lg rounded-br-lg p-3 text-sm mb-2">
+                  <p><%= message.body %></p>
+                  <p class="text-xxs text-left text-gray-400"><%= l  message.created_at, format: :long %></p>
+                </div>
               </div>
             </div>
-            <div class="w-full">
-              <p class="text-xxs mb-1 text-gray-800 font-black">Takashi Yata</p>
-              <div class="bg-gray-100 rounded-t-lg rounded-br-lg p-3 text-sm mb-2">
-                <p>購入しました。よろしくお願いします。</p>
-                <p class="text-xxs text-left text-gray-400">06/13 17:24</p>
-              </div>
-            </div>
-          </div>
-          <div class="flex space-x-3 items-start">
-            <div class="flex-col flex items-center justify-center">
-              <div class="w-10 h-10 bg-center rounded-full bg-red-500 mb-2 overflow-hidden">
-                <img class="object-cover" src="img/common/profile.png">
-              </div>
-            </div>
-            <div class="w-full">
-              <p class="text-xxs mb-1 text-gray-800 font-black">tom</p>
-              <div class="bg-gray-100 rounded-t-lg rounded-br-lg p-3 text-sm mb-2">
-                <p>このたびはご購入ありがとうございます。商品の発送まで今しばらくお待ちください。</p>
-                <p class="text-xxs text-left text-gray-400">06/13 17:24</p>
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
       <div>
