@@ -50,7 +50,11 @@
       </div>
       <div class="mb-0 fixed bottom-0 bg-white w-full p-3 md:mb-8 md:p-0 border-t border-gray-300 md:border-none -ml-2 md:ml-0 md:w-auto z-50 md:static" id="button">
         <% if @item.order %>
-          <button disabled="true" class= "font-bold bg-gray-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center">売り切れました</button>
+          <% if (@item.user_id == current_user.id) || @item.order.user_id == current_user.id %>
+            <%= link_to "取引画面へ", order_path(@item.order), class: "text-base font-bold bg-white border-2 border-red-500 text-red-500 p-2 w-full block py-4 rounded-sm text-center" %>
+          <% else %>
+            <button disabled="true" class= "font-bold bg-gray-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center">売り切れました</button>
+          <% end %>
         <% else %>
           <% if @item.user == current_user %>
             <%= link_to "編集する", edit_item_path(@item), class: "text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center" %>
