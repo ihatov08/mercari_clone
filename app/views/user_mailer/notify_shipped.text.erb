@@ -1,0 +1,11 @@
+<%= @order.user.nickname %>さん
+
+URIKAIをご利用いただきありがとうございます。
+下記の商品が発送されました。
+
+■商品情報
+商品ID : <%= @order.id %>
+商品名 : <%= @order.item.name %>
+商品価格 : <%= number_to_currency(@order.item.price) %>
+
+商品到着まで今しばらくお待ちください。
