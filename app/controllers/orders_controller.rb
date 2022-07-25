@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item
   def new
+    @order = Order.new(user: current_user, item: @item)
   end
 
   def create
