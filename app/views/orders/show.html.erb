@@ -15,23 +15,23 @@
         <div class="table text-sm">
           <div class="table-row">
             <div class="table-cell whitespace-nowrap font-bold pb-4 pr-12">商品代金</div>
-            <div class="table-cell pb-4 font-bold">¥300</div>
+            <div class="table-cell pb-4 font-bold"><%= number_to_currency @order.item.price %></div>
           </div>
           <div class="table-row">
             <div class="table-cell whitespace-nowrap font-bold pb-4 pr-12">送料</div>
-            <div class="table-cell pb-4">送料込み(出品者負担)</div>
+            <div class="table-cell pb-4"><%= @order.item.shipping_payer_type.name %></div>
           </div>
           <div class="table-row">
             <div class="table-cell whitespace-nowrap font-bold pb-4 pr-12">購入日時</div>
-            <div class="table-cell pb-4">2022年1月20日 23:38</div>
+            <div class="table-cell pb-4"><%= l @order.created_at, format: :long %></div>
           </div>
           <div class="table-row">
             <div class="table-cell whitespace-nowrap font-bold pb-4 pr-12">商品ID</div>
-            <div class="table-cell pb-4">m73718136779</div>
+            <div class="table-cell pb-4"><%= @order.id %></div>
           </div>
           <div class="table-row">
             <div class="table-cell whitespace-nowrap font-bold pb-4 pr-12">お届け先</div>
-            <div class="table-cell pb-4">〒693-0000<br />島根県 出雲市 X町219-2<br />山田太郎 様</div>
+            <div class="table-cell pb-4">〒<%= @order.display_postal_code %><br /><%= @order.address %><br /><%= @order.full_name %> 様</div>
           </div>
         </div>
       </div>
