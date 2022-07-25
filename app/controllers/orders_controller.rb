@@ -23,6 +23,8 @@ class OrdersController < ApplicationController
     return if @order.item.user_id == current_user.id
 
     raise ActiveRecord::RecordNotFound
+
+    @message = @order.messages.build
   end
 
   private
