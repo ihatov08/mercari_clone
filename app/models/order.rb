@@ -26,6 +26,7 @@ class Order < ApplicationRecord
   validates :payer_line, presence: true
   validates :payer_building_name, presence: true
   validates :payer_phone_number, presence: true
+  validates_associated :payer_evaluation
 
   def pay!
     transaction do
