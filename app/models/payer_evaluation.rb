@@ -1,0 +1,2 @@
+class PayerEvaluation < Evaluation
+end
