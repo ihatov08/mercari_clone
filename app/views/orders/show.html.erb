@@ -59,6 +59,7 @@
       </div>
       <% if @order.user_id == current_user.id && @order.shipped? %>
         <%= form_with model: @order.payer_evaluation, url: order_payer_evaluation_path(@order) do |f| %>
+          <%= render partial: "shared/error_messages", locals: { resource: @order.payer_evaluation } %>
           <div class="mt-6 mb-6">
             <h3 class="font-black mb-2 text-xl text-gray-700">取引評価</h3>
             <p class="text-sm font-bold mb-2">商品の受け取り</p>
