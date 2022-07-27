@@ -1,4 +1,123 @@
-<div>
-  <h1 class="font-bold text-4xl">Users#show</h1>
-  <p>Find me in app/views/users/show.html.erb</p>
-</div>
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 px-2 md:px-8 xl:px-0" id="contents">
+  <div id="profile">
+    <div class="flex space-x-4 items-start mb-4 md:items-center">
+      <img class="rounded-full w-16 h-16 md:w-24 md:h-24" src="img/common/profile.png">
+      <div>
+        <p class="font-bold">USERNAME</p>
+        <div class="flex space-x-4 items-center">
+          <a class="flex space-x-2 items-center text-blue-500" id="rating" href="#">
+            <ul class="flex items-center space-x-0.5" id="stars">
+              <li>
+                <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                  <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                </svg>
+              </li>
+              <li>
+                <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                  <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                </svg>
+              </li>
+              <li>
+                <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                  <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                </svg>
+              </li>
+              <li>
+                <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                  <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                </svg>
+              </li>
+              <li>
+                <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                  <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                </svg>
+              </li>
+            </ul>
+            <span class="text-sm">118</span>
+          </a>
+        </div>
+        <button class="border text-sm border-red-500 text-red-500 px-4 py-1 rounded-md w-full md:w-auto mt-2 md:mt-0">＋フォロー</button>
+      </div>
+    </div>
+    <div class="flex space-x-4 items-start md:items-center">
+      <dl class="text-sm flex space-x-2">
+        <dt class="font-bold">110</dt>
+        <dd>出品数</dd>
+      </dl>
+      <dl class="text-sm flex space-x-2">
+        <dt class="font-bold">12</dt>
+        <dd>フォロワー</dd>
+      </dl>
+      <dl class="text-sm flex space-x-2">
+        <dt class="font-bold">4</dt>
+        <dd>フォロー中</dd>
+      </dl>
+    </div>
+  </div>
+  <hr class="bg-gray-200 h-px w-full my-8 md:my-12">
+  <div id="product_list">
+    <div class="mb-4 px-4 md:mb-6 md:px-0">
+      <h2 class="text-xl font-bold text-gray-600">出品した商品</h2>
+    </div>
+    <div class="col-span-9 grid grid-cols-3 gap-px md:grid-cols-5 md:gap-3 lg:gap-6">
+      <a class="col-span-1 group hover:opacity-80 duration-200 md:rounded-md" href="#">
+        <div class="relative overflow-hidden md:rounded-md">
+          <div class="absolute z-10 bottom-0 left-0 bg-black bg-opacity-50 text-white font-bold rounded-r-full px-2 pr-4 py-1 text-xs md:text-lg md:mb-4">¥18,500</div>
+          <div class="w-16 h-16 bg-red-500 text-white font-black absolute z-10 rotate-45 flex items-end justify-center right-0 top-0 text-[0.6rem] md:text-lg md:w-32 md:h-32 pb-0.5 md:pb-1 -mr-8 -mt-8 md:-mr-16 md:-mt-16">SOLD</div>
+          <div class="aspect-w-1 aspect-h-1 bg-gray-500 overflow-hidden md:rounded-md">
+            <img class="object-cover md:rounded-md" src="img/dummy/saifu.jpg">
+          </div>
+        </div>
+        <div class="py-2 hidden md:block">
+          <p class="text-sm">がま口 財布 / アニマルマーチ4.0親子　カバイエロー</p>
+        </div>
+      </a>
+      <a class="col-span-1 group hover:opacity-80 duration-200 md:rounded-md" href="#">
+        <div class="relative overflow-hidden md:rounded-md">
+          <div class="absolute z-10 bottom-0 left-0 bg-black bg-opacity-50 text-white font-bold rounded-r-full px-2 pr-4 py-1 text-xs md:text-lg md:mb-4">¥18,500</div>
+          <div class="w-16 h-16 bg-red-500 text-white font-black absolute z-10 rotate-45 flex items-end justify-center right-0 top-0 text-[0.6rem] md:text-lg md:w-32 md:h-32 pb-0.5 md:pb-1 -mr-8 -mt-8 md:-mr-16 md:-mt-16">SOLD</div>
+          <div class="aspect-w-1 aspect-h-1 bg-gray-500 overflow-hidden md:rounded-md">
+            <img class="object-cover md:rounded-md" src="img/dummy/omochi.jpg">
+          </div>
+        </div>
+        <div class="py-2 hidden md:block">
+          <p class="text-sm">手作りお餅</p>
+        </div>
+      </a>
+      <a class="col-span-1 group hover:opacity-80 duration-200 md:rounded-md" href="#">
+        <div class="relative overflow-hidden md:rounded-md">
+          <div class="absolute z-10 bottom-0 left-0 bg-black bg-opacity-50 text-white font-bold rounded-r-full px-2 pr-4 py-1 text-xs md:text-lg md:mb-4">¥18,500</div>
+          <div class="w-16 h-16 bg-red-500 text-white font-black absolute z-10 rotate-45 flex items-end justify-center right-0 top-0 text-[0.6rem] md:text-lg md:w-32 md:h-32 pb-0.5 md:pb-1 -mr-8 -mt-8 md:-mr-16 md:-mt-16">SOLD</div>
+          <div class="aspect-w-1 aspect-h-1 bg-gray-500 overflow-hidden md:rounded-md">
+            <img class="object-cover md:rounded-md" src="img/dummy/momotetsu.jpg">
+          </div>
+        </div>
+        <div class="py-2 hidden md:block">
+          <p class="text-sm">桃太郎電鉄 ～昭和 平成 令和も定番！～ Switch</p>
+        </div>
+      </a>
+      <a class="col-span-1 group hover:opacity-80 duration-200 md:rounded-md" href="#">
+        <div class="relative overflow-hidden md:rounded-md">
+          <div class="absolute z-10 bottom-0 left-0 bg-black bg-opacity-50 text-white font-bold rounded-r-full px-2 pr-4 py-1 text-xs md:text-lg md:mb-4">¥18,500</div>
+          <div class="w-16 h-16 bg-red-500 text-white font-black absolute z-10 rotate-45 flex items-end justify-center right-0 top-0 text-[0.6rem] md:text-lg md:w-32 md:h-32 pb-0.5 md:pb-1 -mr-8 -mt-8 md:-mr-16 md:-mt-16">SOLD</div>
+          <div class="aspect-w-1 aspect-h-1 bg-gray-500 overflow-hidden md:rounded-md">
+            <img class="object-cover md:rounded-md" src="img/dummy/stansmith.jpg">
+          </div>
+        </div>
+        <div class="py-2 hidden md:block">
+          <p class="text-sm">スタンスミス 28cm（わけあり商品）右のみサイズが違います</p>
+        </div></a><a class="col-span-1 group hover:opacity-80 duration-200 md:rounded-md" href="#">
+        <div class="relative overflow-hidden md:rounded-md">
+          <div class="absolute z-10 bottom-0 left-0 bg-black bg-opacity-50 text-white font-bold rounded-r-full px-2 pr-4 py-1 text-xs md:text-lg md:mb-4">¥18,500</div>
+          <div class="w-16 h-16 bg-red-500 text-white font-black absolute z-10 rotate-45 flex items-end justify-center right-0 top-0 text-[0.6rem] md:text-lg md:w-32 md:h-32 pb-0.5 md:pb-1 -mr-8 -mt-8 md:-mr-16 md:-mt-16">SOLD</div>
+          <div class="aspect-w-1 aspect-h-1 bg-gray-500 overflow-hidden md:rounded-md">
+            <img class="object-cover md:rounded-md" src="img/dummy/chunic.jpg">
+          </div>
+        </div>
+        <div class="py-2 hidden md:block">
+          <p class="text-sm">チュニック</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</main>
