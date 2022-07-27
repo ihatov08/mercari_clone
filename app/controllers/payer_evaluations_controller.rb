@@ -20,7 +20,7 @@ class PayerEvaluationsController < ApplicationController
   def set_order
     @order = Order.find(params[:order_id])
 
-    return if @order.payer_id == current_user.id
+    return if @order.user_id == current_user.id
     return if @order.item.user_id == current_user.id
 
     raise ActiveRecord::RecordNotFound
