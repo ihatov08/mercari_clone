@@ -46,7 +46,7 @@
           <% elsif @order.shipped? %>
             <p class="font-bold mb-2">受取評価をしてください</p>
             <p>商品が発送されました。商品が到着したら、出品者の評価をしてください</p>
-          <% elsif @order.received? %>
+          <% else %>
             <p class="font-bold mb-2">取引が完了しました</p>
             <p>このたびはメルカリのご利用ありがとうございました</p>
           <% end %>
@@ -61,6 +61,9 @@
             <p class="font-bold mb-2">評価をしてください</p>
             <p>購入者に商品が到着し評価がありました。購入者の評価を行って取引を完了してください。</p>
             <p class="text-xs text-gray-500">※評価は取引が終わった後で見ることができます。</p>
+          <% else %>
+            <p class="font-bold mb-2">取引が完了しました</p>
+            <p>このたびはメルカリのご利用ありがとうございました</p>
           <% end %>
         <% end %>
       </div>
