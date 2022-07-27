@@ -57,6 +57,10 @@
           <% elsif @order.shipped? %>
             <p class="font-bold mb-2"> 商品の発送を通知しました</p>
             <p>購入者の受取確認と評価をしばらくお待ちください</p>
+          <% elsif @order.received? %>
+            <p class="font-bold mb-2">評価をしてください</p>
+            <p>購入者に商品が到着し評価がありました。購入者の評価を行って取引を完了してください。</p>
+            <p class="text-xs text-gray-500">※評価は取引が終わった後で見ることができます。</p>
           <% end %>
         <% end %>
       </div>
