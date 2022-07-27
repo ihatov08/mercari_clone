@@ -3,7 +3,7 @@
     <div class="flex space-x-4 items-start mb-4 md:items-center">
       <%= image_tag "profile.png", class: "rounded-full w-16 h-16 md:w-24 md:h-24" %>
       <div>
-        <p class="font-bold">USERNAME</p>
+        <p class="font-bold"><%= @user.nickname %></p>
         <div class="flex space-x-4 items-center">
           <a class="flex space-x-2 items-center text-blue-500" id="rating" href="#">
             <ul class="flex items-center space-x-0.5" id="stars">
