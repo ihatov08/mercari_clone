@@ -1,0 +1,10 @@
+<%= @order.user.nickname %>さん
+
+下記の商品を取引した<%= @order.item.user.nickname %>さんがあなたを評価しました。
+
+■商品情報
+商品ID : <%= @order.id %>
+商品名 : <%= @order.item.name %>
+商品価格 : <%= number_to_currency(@order.item.price) %>
+
+これで商品の購入取引は完了しました。
