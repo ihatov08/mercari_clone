@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      seller_evaluation:
+        comment: コメント
+    models:
+      seller_evaluation: 評価
