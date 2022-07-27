@@ -99,6 +99,8 @@
           </div>
         <% end %>
       <% end %>
+      <% if @order.item.user_id == current_user.id && @order.received? %>
+      <% end %>
       <%= link_to "商品の発送をしたので、発送通知をする", ship_order_path(@order), method: :post, data: { confirm: "発送通知をしますか？" }, class: "mt-2 text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center" if current_user.id == @order.item.user_id && @order.ordered? %>
       <div class="mt-12">
         <h3 class="font-black mb-8 text-xl text-gray-700">出品者情報</h3>
