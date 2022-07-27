@@ -6,6 +6,7 @@ class Order < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   has_one :payer_evaluation, dependent: :destroy
+  has_one :seller_evaluation, dependent: :destroy
 
   enum status: {
     ordered: 10,
@@ -27,6 +28,7 @@ class Order < ApplicationRecord
   validates :payer_building_name, presence: true
   validates :payer_phone_number, presence: true
   validates_associated :payer_evaluation
+  validates_associated :seller_evaluation
 
   def pay!
     transaction do

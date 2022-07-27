@@ -19,7 +19,13 @@ class OrdersController < ApplicationController
 
   def show
     @message = @order.messages.build
-    @order.build_payer_evaluation unless @order.payer_evaluation
+    if current_user.id == @order.user_id && !@order.payer_evaluation
+      @order.build_payer_evaluation
+    end
+
+    if current_user.id == @order.item.user_id && !@order.seller_evaluation
+      @order.build_seller_evaluation
+    end
   end
 
   def ship

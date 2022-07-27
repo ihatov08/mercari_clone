@@ -37,6 +37,7 @@ Rails.application.routes.draw do
         post :ship
       end
       resource :payer_evaluation, only: %i[create]
+      resource :seller_evaluation, only: %i[create]
     end
   end
 
