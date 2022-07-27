@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_current_user_item, only: [:edit, :update]
+  before_action :check_order, only: %i[edit update]
 
   def new
     @item = current_user.items.build
@@ -55,5 +56,11 @@ class ItemsController < ApplicationController
 
   def set_current_user_item
     @item = current_user.items.find(params[:id])
+  end
+
+  def check_order
+    if @item.order
+      redirect_to item_path(@item), alert: "商品は購入済のため編集できません"
+    end
   end
 end
