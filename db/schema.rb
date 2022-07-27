@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_25_215251) do
+ActiveRecord::Schema.define(version: 2022_07_26_000730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2022_07_25_215251) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["stripe_customer_id"], name: "index_current_stripe_payments_on_stripe_customer_id", unique: true
     t.index ["stripe_payment_id"], name: "index_current_stripe_payments_on_stripe_payment_id"
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.string "type"
+    t.bigint "order_id", null: false
+    t.boolean "good", default: true, null: false
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_evaluations_on_order_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -259,6 +269,7 @@ ActiveRecord::Schema.define(version: 2022_07_25_215251) do
   add_foreign_key "current_shipping_addresses", "users"
   add_foreign_key "current_stripe_payments", "stripe_customers"
   add_foreign_key "current_stripe_payments", "stripe_payments"
+  add_foreign_key "evaluations", "orders"
   add_foreign_key "favorites", "items"
   add_foreign_key "favorites", "users"
   add_foreign_key "items", "item_categories"

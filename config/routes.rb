@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       member do
         post :ship
       end
+      resource :payer_evaluation, only: %i[create]
     end
   end
 

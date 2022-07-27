@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
   def show
     @message = @order.messages.build
+    @order.build_payer_evaluation unless @order.payer_evaluation
   end
 
   def ship
