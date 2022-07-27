@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      payer_evaluation:
+        received: 商品の受け取り
+        comment: コメント
+    models:
+      payer_evaluation: 評価
