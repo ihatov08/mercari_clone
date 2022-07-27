@@ -57,36 +57,38 @@
           <% end %>
         <% end %>
       </div>
-      <div class="mt-6 mb-6">
-        <h3 class="font-black mb-2 text-xl text-gray-700">取引評価</h3>
-        <p class="text-sm font-bold mb-2">商品の受け取り</p>
-        <label class="text-base flex items-center block">
-          <label class="mr-1">
-            <input class="mr-1" type="checkbox">
+      <% if @order.user_id == current_user.id && @order.shipped? %>
+        <div class="mt-6 mb-6">
+          <h3 class="font-black mb-2 text-xl text-gray-700">取引評価</h3>
+          <p class="text-sm font-bold mb-2">商品の受け取り</p>
+          <label class="text-base flex items-center block">
+            <label class="mr-1">
+              <input class="mr-1" type="checkbox">
+            </label>
+            <span>商品の中身を確認しました</span>
           </label>
-          <span>商品の中身を確認しました</span>
-        </label>
-      </div>
-      <hr class="h-px text-red-500 bg-red-500">
-      <div class="mt-6 mb-8 flex flex-row space-x-4">
-        <label class="cursor-pointer py-4 border border-gray-200 rounded-md flex flex-col p-3 items-center md:w-64 w-1/2">
-          <p class="mb-1 font-bold">良かった</p>
-          <input type="radio" name="evalution" value="1" :checked="evalution=='good'">
-        </label>
-        <label class="cursor-pointer py-4 border border-gray-200 rounded-md flex flex-col p-3 items-center md:w-64 w-1/2">
-          <p class="mb-1 font-bold">残念だった</p>
-          <input type="radio" name="evalution" value="2" :checked="evalution=='bad'">
-        </label>
-      </div>
-      <div>
-        <p class="mb-2 text-sm font-bold">評価のコメントを記入しましょう</p>
-        <textarea class="border border-gray-300 rounded py-2 px-3 text-grey-darker bg-gray-100 border border-gray-300 h-24 w-full mb-2" placeholder="例）このたびはお取引ありがとうございました。"></textarea>
-        <button class="text-base font-bold bg-white bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm" value="">評価を投稿する</button>
-        <ul class="text-xs text-gray-500 mt-4">
-          <li>※このコメントは、取引完了後に評価一覧で公開されます。</li>
-          <li>※商品に問題がある場合などは、評価をせずに取引メッセージで伝えましょう。</li>
-        </ul>
-      </div>
+        </div>
+        <hr class="h-px text-red-500 bg-red-500">
+        <div class="mt-6 mb-8 flex flex-row space-x-4">
+          <label class="cursor-pointer py-4 border border-gray-200 rounded-md flex flex-col p-3 items-center md:w-64 w-1/2">
+            <p class="mb-1 font-bold">良かった</p>
+            <input type="radio" name="evalution" value="1" :checked="evalution=='good'">
+          </label>
+          <label class="cursor-pointer py-4 border border-gray-200 rounded-md flex flex-col p-3 items-center md:w-64 w-1/2">
+            <p class="mb-1 font-bold">残念だった</p>
+            <input type="radio" name="evalution" value="2" :checked="evalution=='bad'">
+          </label>
+        </div>
+        <div>
+          <p class="mb-2 text-sm font-bold">評価のコメントを記入しましょう</p>
+          <textarea class="border border-gray-300 rounded py-2 px-3 text-grey-darker bg-gray-100 border border-gray-300 h-24 w-full mb-2" placeholder="例）このたびはお取引ありがとうございました。"></textarea>
+          <button class="text-base font-bold bg-white bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm" value="">評価を投稿する</button>
+          <ul class="text-xs text-gray-500 mt-4">
+            <li>※このコメントは、取引完了後に評価一覧で公開されます。</li>
+            <li>※商品に問題がある場合などは、評価をせずに取引メッセージで伝えましょう。</li>
+          </ul>
+        </div>
+      <% end %>
       <%= link_to "商品の発送をしたので、発送通知をする", ship_order_path(@order), method: :post, data: { confirm: "発送通知をしますか？" }, class: "mt-2 text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center" if current_user.id == @order.item.user_id && @order.ordered? %>
       <div class="mt-12">
         <h3 class="font-black mb-8 text-xl text-gray-700">出品者情報</h3>
