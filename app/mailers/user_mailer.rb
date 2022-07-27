@@ -36,6 +36,6 @@ class UserMailer < ApplicationMailer
     @order = order
 
     mail to: order.item.user.email,
-          subject: "【URIKAI】#{order.payer.nickname}さんの評価をお願いします"
+          subject: "【URIKAI】#{order.user.nickname}さんの評価をお願いします"
   end
 end
