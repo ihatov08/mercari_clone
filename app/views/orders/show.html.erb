@@ -100,6 +100,8 @@
         <% end %>
       <% end %>
       <% if @order.item.user_id == current_user.id && @order.received? %>
+        <%= form_with model: @order.seller_evaluation, url: order_seller_evaluation_path(@order) do |f| %>
+        <% end %>
       <% end %>
       <%= link_to "商品の発送をしたので、発送通知をする", ship_order_path(@order), method: :post, data: { confirm: "発送通知をしますか？" }, class: "mt-2 text-base font-bold bg-red-500 text-white p-2 w-full block text-sm py-4 rounded-sm text-center" if current_user.id == @order.item.user_id && @order.ordered? %>
       <div class="mt-12">
