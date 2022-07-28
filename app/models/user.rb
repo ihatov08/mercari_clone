@@ -24,6 +24,10 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :shipping_addresses, dependent: :destroy
+  has_many :seller_orders, through: :items, source: "order"
+  has_many :payer_orders, class_name: "Order"
+  has_many :payer_evaluations, through: :seller_orders
+  has_many :seller_evaluations, through: :payer_orders
 
   enum gender: {
       unanswered: 0,
