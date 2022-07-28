@@ -37,6 +37,24 @@ class User < ApplicationRecord
     end
   end
 
+  def evaluations
+    Evaluation
+      .joins(order: :item)
+      .where(<<~SQL, order_user_id: self.id, item_user_id: self.id)
+        (
+          evaluations.type = 'SellerEvaluation'
+          AND
+          orders.user_id = :order_user_id
+        )
+        OR
+        (
+          evaluations.type = 'PayerEvaluation'
+          AND
+          items.user_id = :item_user_id
+        )
+      SQL
+  end
+
   def remember_me
     true
   end
