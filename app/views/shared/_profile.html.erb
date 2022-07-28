@@ -6,31 +6,20 @@
       <div class="flex space-x-4 items-center">
         <%= link_to user_evaluations_path(user), class: "flex space-x-2 items-center text-blue-500" do %>
           <ul class="flex items-center space-x-0.5" id="stars">
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
+            <% user.evaluation_rate.times do %>
+              <li>
+                <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                  <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                </svg>
+              </li>
+            <% end %>
+            <% (User::EVALUATION_MAX_RATE - user.evaluation_rate).times do %>
+              <li>
+                <svg class="text-gray-200 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                  <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                </svg>
+              </li>
+            <% end %>
           </ul>
           <span class="text-sm"><%= user.evaluations.count %></span>
         <% end %>
