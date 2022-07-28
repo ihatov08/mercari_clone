@@ -13,54 +13,18 @@
           <%= link_to "残念だった(#{@user.evaluations.with_good(false).size})", user_evaluations_path(@user, good: false), class: "block" %>
         </li>
       </ul>
-      <div class="flex px-4 py-4 space-x-4"><img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
-        <div class="flex flex-col space-y-2 flex-grow">
-          <p class="font-black" id="name">みょんみょん</p>
-          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
-            <p class="mb-1">ありがとうございました</p>
-            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
+      <% @user.evaluations.with_good(params[:good]).each do |evaluation| %>
+        <div class="flex px-4 py-4 space-x-4">
+          <%= image_tag "profile.png", class:"bg-gray-500 rounded-full w-12 h-12"  %>
+          <div class="flex flex-col space-y-2 flex-grow">
+            <p class="font-black" id="name"><%= evaluation.reviewer.nickname %></p>
+            <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
+              <p class="mb-1"><%= evaluation.comment %></p>
+              <p class="text-xs text-gray-400" id="date">2022/11/11</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="flex px-4 py-4 space-x-4"><img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
-        <div class="flex flex-col space-y-2 flex-grow">
-          <p class="font-black" id="name">あげは</p>
-          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
-            <p class="mb-1">またよろしくお願いします</p>
-            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
-          </div>
-        </div>
-      </div>
-      <div class="flex px-4 py-4 space-x-4">
-        <img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
-        <div class="flex flex-col space-y-2 flex-grow">
-          <p class="font-black" id="name">今村</p>
-          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
-            <p class="mb-1">丁寧な梱包ありがとうございました</p>
-            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
-          </div>
-        </div>
-      </div>
-      <div class="flex px-4 py-4 space-x-4">
-        <img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
-        <div class="flex flex-col space-y-2 flex-grow">
-          <p class="font-black" id="name">悟空</p>
-          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
-            <p class="mb-1">ありがとうございました！</p>
-            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
-          </div>
-        </div>
-      </div>
-      <div class="flex px-4 py-4 space-x-4">
-        <img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
-        <div class="flex flex-col space-y-2 flex-grow">
-          <p class="font-black" id="name">くにゆき</p>
-          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
-            <p class="mb-1">お手数をおかけしました。無事お届けできたようで、よかったです。ありがとうございました。</p>
-            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </main>
