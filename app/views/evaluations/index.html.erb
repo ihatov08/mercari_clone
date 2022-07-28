@@ -1,4 +1,118 @@
-<div>
-  <h1 class="font-bold text-4xl">Evaluations#index</h1>
-  <p>Find me in app/views/evaluations/index.html.erb</p>
-</div>
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 px-2 md:px-8 xl:px-0" id="contents">
+  <div class="space-x-0 md:space-x-12 md:flex md:items-start">
+    <div class="border border-gray-200 p-8 hidden flex-none md:block w-4/12" id="profile">
+      <div class="flex space-x-4 items-start mb-4 md:items-center">
+        <img class="rounded-full w-12 h-12 md:w-24 md:h-24" src="img/common/profile.png">
+        <div>
+          <p class="font-bold">USERNAME</p>
+          <div class="flex space-x-4 items-center">
+            <a class="flex space-x-2 items-center text-blue-500" id="rating" href="#">
+              <ul class="flex items-center space-x-0.5" id="stars">
+                <li>
+                  <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                    <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                  </svg>
+                </li>
+                <li>
+                  <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                    <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                  </svg>
+                </li>
+                <li>
+                  <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                    <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                  </svg>
+                </li>
+                <li>
+                  <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                    <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                  </svg>
+                </li>
+                <li>
+                  <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
+                    <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
+                  </svg>
+                </li>
+              </ul>
+              <span class="text-sm">118</span>
+            </a>
+          </div>
+          <button class="border text-sm border-red-500 text-red-500 px-4 py-1 rounded-md w-full md:w-auto mt-2 md:mt-0">＋フォロー</button>
+        </div>
+      </div>
+      <div class="flex space-x-4 items-start md:items-center">
+        <dl class="text-sm flex space-x-2">
+          <dt class="font-bold">110</dt>
+          <dd>出品数</dd>
+        </dl>
+        <dl class="text-sm flex space-x-2">
+          <dt class="font-bold">12</dt>
+          <dd>フォロワー</dd>
+        </dl>
+        <dl class="text-sm flex space-x-2">
+          <dt class="font-bold">4</dt>
+          <dd>フォロー中</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="w-full md:w-8/12" id="reviews">
+      <h2 class="text-2xl font-black mb-6">評価一覧</h2>
+      <ul class="flex border-b border-gray-200 mb-8">
+        <li class="px-4 py-4 border-b-4 border-red-500 text-red-500 font-black text-sm">
+          <a class="block" href="#">良かった (20)</a>
+        </li>
+        <li class="px-4 py-4  text-gray-500 font-normal text-sm">
+          <a class="block" href="#">残念だった (0)</a>
+        </li>
+      </ul>
+      <div class="flex px-4 py-4 space-x-4"><img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
+        <div class="flex flex-col space-y-2 flex-grow">
+          <p class="font-black" id="name">みょんみょん</p>
+          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
+            <p class="mb-1">ありがとうございました</p>
+            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex px-4 py-4 space-x-4"><img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
+        <div class="flex flex-col space-y-2 flex-grow">
+          <p class="font-black" id="name">あげは</p>
+          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
+            <p class="mb-1">またよろしくお願いします</p>
+            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex px-4 py-4 space-x-4">
+        <img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
+        <div class="flex flex-col space-y-2 flex-grow">
+          <p class="font-black" id="name">今村</p>
+          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
+            <p class="mb-1">丁寧な梱包ありがとうございました</p>
+            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex px-4 py-4 space-x-4">
+        <img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
+        <div class="flex flex-col space-y-2 flex-grow">
+          <p class="font-black" id="name">悟空</p>
+          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
+            <p class="mb-1">ありがとうございました！</p>
+            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex px-4 py-4 space-x-4">
+        <img class="bg-gray-500 rounded-full w-12 h-12" src="https://placehold.jp/44/3d4070/ffffff/150x150.png?text=%E7%94%BB%E5%83%8F">
+        <div class="flex flex-col space-y-2 flex-grow">
+          <p class="font-black" id="name">くにゆき</p>
+          <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
+            <p class="mb-1">お手数をおかけしました。無事お届けできたようで、よかったです。ありがとうございました。</p>
+            <p class="text-xs text-gray-400" id="date">2022/11/11</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
