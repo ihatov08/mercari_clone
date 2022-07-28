@@ -24,10 +24,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :shipping_addresses, dependent: :destroy
-  has_many :seller_orders, through: :items, source: "order"
-  has_many :payer_orders, class_name: "Order"
-  has_many :payer_evaluations, through: :seller_orders
-  has_many :seller_evaluations, through: :payer_orders
 
   enum gender: {
       unanswered: 0,
@@ -39,6 +35,24 @@ class User < ApplicationRecord
     def genders_i18n
       I18n.t("enums.user.gender")
     end
+  end
+
+  def evaluations
+    Evaluation
+      .joins(order: :item)
+      .where(<<~SQL, order_user_id: self.id, item_user_id: self.id)
+        (
+          evaluations.type = 'SellerEvaluation'
+          AND
+          orders.user_id = :order_user_id
+        )
+        OR
+        (
+          evaluations.type = 'PayerEvaluation'
+          AND
+          items.user_id = :item_user_id
+        )
+      SQL
   end
 
   def remember_me

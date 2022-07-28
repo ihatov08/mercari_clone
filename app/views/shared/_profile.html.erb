@@ -2,9 +2,9 @@
   <div class="flex space-x-4 items-start mb-4 md:items-center">
     <%= image_tag "profile.png", class: "rounded-full w-16 h-16 md:w-24 md:h-24" %>
     <div>
-      <p class="font-bold"><%= @user.nickname %></p>
+      <p class="font-bold"><%= user.nickname %></p>
       <div class="flex space-x-4 items-center">
-        <%= link_to user_evaluations_path(@user), class: "flex space-x-2 items-center text-blue-500" do %>
+        <%= link_to user_evaluations_path(user), class: "flex space-x-2 items-center text-blue-500" do %>
           <ul class="flex items-center space-x-0.5" id="stars">
             <li>
               <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
@@ -40,7 +40,7 @@
   </div>
   <div class="flex space-x-4 items-start md:items-center">
     <dl class="text-sm flex space-x-2">
-      <dt class="font-bold"><%= @user.items.size %></dt>
+      <dt class="font-bold"><%= user.items.size %></dt>
       <dd>出品数</dd>
     </dl>
     <dl class="text-sm flex space-x-2">
