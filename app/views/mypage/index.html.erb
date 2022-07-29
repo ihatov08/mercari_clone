@@ -3,7 +3,7 @@
     <%= image_tag "profile.png", class: "mb-4 rounded-full w-16 h-16 md:w-24 md:h-24" %>
     <div class="text-center">
       <%= link_to user_path(current_user), class: "font-bold text-2xl flex items-center justify-center mb-4" do %>
-      <a class="font-bold text-2xl flex items-center justify-center mb-4" href="#"><span>USERNAME</span>
+      <span><%= current_user.nickname %></span>
         <svg class="w-7 text-gray-800" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8.46967 4.21967C8.17678 4.51256 8.17678 4.98744 8.46967 5.28033L15.1893 12L8.46967 18.7197C8.17678 19.0126 8.17678 19.4874 8.46967 19.7803C8.76256 20.0732 9.23744 20.0732 9.53033 19.7803L16.7803 12.5303C17.0732 12.2374 17.0732 11.7626 16.7803 11.4697L9.53033 4.21967C9.23744 3.92678 8.76256 3.92678 8.46967 4.21967Z" fill="currentColor"></path>
         </svg>
