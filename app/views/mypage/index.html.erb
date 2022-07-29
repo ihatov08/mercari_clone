@@ -8,38 +8,7 @@
           <path d="M8.46967 4.21967C8.17678 4.51256 8.17678 4.98744 8.46967 5.28033L15.1893 12L8.46967 18.7197C8.17678 19.0126 8.17678 19.4874 8.46967 19.7803C8.76256 20.0732 9.23744 20.0732 9.53033 19.7803L16.7803 12.5303C17.0732 12.2374 17.0732 11.7626 16.7803 11.4697L9.53033 4.21967C9.23744 3.92678 8.76256 3.92678 8.46967 4.21967Z" fill="currentColor"></path>
         </svg>
       <% end %>
-      <div class="flex space-x-4 items-center">
-        <a class="flex space-x-2 items-center text-blue-500" id="rating" href="#">
-          <ul class="flex items-center space-x-0.5" id="stars">
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
-            <li>
-              <svg class="text-yellow-500 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-                <path d="M6.5,9.644,10.517,12,9.451,7.56,13,4.573,8.326,4.187,6.5,0,4.674,4.187,0,4.573,3.549,7.56,2.483,12Z" fill="currentColor"></path>
-              </svg>
-            </li>
-          </ul>
-          <span class="text-sm">118</span>
-        </a>
-      </div>
+      <%= render partial: "shared/evaluation", locals: { user: current_user } %>
     </div>
   </div>
   <div class="mb-4 py-6 border-t border-b border-gray-300 mt-12 md:items-center">
