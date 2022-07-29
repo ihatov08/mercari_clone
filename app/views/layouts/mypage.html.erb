@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://js.stripe.com/v3/"></script>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="min-h-screen flex flex-col overflow-hidden">
+      <%= render partial: "shared/header" %>
+      <% if flash[:notice] %>
+         <div class="mt-20 bg-blue-100 booder-t border-t border-blue-500 text-blue-700 px-4 py-3" role="alert">
+           <p class="text-sm"><%= flash[:notice] %></p>
+         </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="mt-20 bg-red-100 booder-t border-t border-red-100 text-red-700 px-4 py-3" role="alert">
+          <p class="text-sm"><%= flash[:alert] %></p>
+        </div>
+      <% end %>
+      <main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 px-2 md:px-8 xl:px-0" id="contents">
+        <div class="md:flex md:space-x-12">
+          <%= render partial: "shared/mypage/side_menu" %>
+          <%= yield %>
+        </div>
+      </main>
+      <%= render partial: "shared/footer" %>
+    </div>
+  </body>
+</html>
