@@ -6,5 +6,10 @@ class Mypage::FavoritesController < ApplicationController
   end
 
   def destroy
+    favorite = current_user.favorites.find(params[:id])
+
+    favorite.destroy
+
+    redirect_to mypage_favorites_path, notice: "いいねを削除しました"
   end
 end
