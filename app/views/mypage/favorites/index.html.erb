@@ -40,7 +40,7 @@
             <% end %>
           </div>
           <div class="flex items-center justify-center">
-            <button class="bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base">削除</button>
+            <%= link_to "削除", mypage_favorite_path(favorite), method: :delete, data: { confirm: "本当に削除しますか？"}, class: "bg-white border-2 border-red-500 font-bold text-red-500 px-4 py-1 rounded text-base" %>
           </div>
         </div>
       </li>
