@@ -3,5 +3,10 @@ class Mypage::ItemsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @items =
+      current_user
+        .items
+        .left_joins(:order)
+        .where(order: { id: nil })
   end
 end
