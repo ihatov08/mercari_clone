@@ -39,6 +39,9 @@ Rails.application.routes.draw do
       resource :payer_evaluation, only: %i[create]
       resource :seller_evaluation, only: %i[create]
     end
+    namespace :items do
+      get "in_progress" => "in_progress#index", as: :in_progress
+    end
   end
 
   resources :users, only: %i[show] do
