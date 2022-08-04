@@ -13,7 +13,9 @@
         <li class="border-b border-gray-300 px-2 group md:px-4 hover:bg-gray-100 duration-200 ">
           <%= link_to item_path(item), class: "py-4 flex group space-x-4 md:space-x-4" do %>
             <div class="w-24 h-24 bg-gray-200 flex justify-center items-center relative flex-shrink-0 overflow-hidden rounded-md">
-              <div class="w-16 h-16 font-bold bg-red-500 text-white absolute z-10 rotate-45 flex items-end justify-center right-0 top-0 text-[0.6rem] md:text-[4px] pb-0.5 -mr-8 -mt-8">SOLD</div>
+              <% if item.order %>
+                <div class="w-16 h-16 font-bold bg-red-500 text-white absolute z-10 rotate-45 flex items-end justify-center right-0 top-0 text-[0.6rem] md:text-[4px] pb-0.5 -mr-8 -mt-8">SOLD</div>
+              <% end %>
               <img class="object-contain h-full" src="img/dummy/gamegear.jpg">
             </div>
             <div class="flex-grow">
