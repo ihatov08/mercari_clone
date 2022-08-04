@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get "mypage" => "mypage#index"
   namespace :mypage do
     resources :favorites, only: %i[index destroy]
+    resources :items, only: %i[index]
   end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
