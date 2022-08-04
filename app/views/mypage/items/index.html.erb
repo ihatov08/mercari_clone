@@ -19,8 +19,8 @@
               <%= image_tag item.images.first.url, class: "object-contain h-full" %>
             </div>
             <div class="flex-grow">
-              <p class="text-base mb-1 md:text-lg">ゲームギア</p>
-              <p class="text-sm font-bold mb-1">¥14,200</p>
+              <p class="text-base mb-1 md:text-lg"><%= item.name %></p>
+              <p class="text-sm font-bold mb-1"><%= number_to_currency(item.price) %></p>
               <ul class="flex space-x-4 items-center text-gray-700">
                 <li class="flex items-center space-x-0.5">
                   <svg class="w-4" viewbox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
