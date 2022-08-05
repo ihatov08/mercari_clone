@@ -49,6 +49,9 @@ Rails.application.routes.draw do
   namespace :mypage do
     resources :favorites, only: %i[index destroy]
     resources :items, only: %i[index]
+    namespace :items do
+      get "in_progress" => "in_progress#index", as: :in_progress
+    end
   end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
