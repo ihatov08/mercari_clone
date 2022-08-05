@@ -13,5 +13,6 @@
       <a class="block" href="#">売却済み</a>
     </li>
   </ul>
+  <%= render partial: "mypage/items/items", locals: { items: @items, status: "出品中" } %>
   </div>
 </div>
