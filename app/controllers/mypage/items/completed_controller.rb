@@ -3,5 +3,10 @@ class Mypage::Items::CompletedController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @items =
+      current_user
+        .items
+        .joins(:order)
+        .merge(Order.completed)
   end
 end
