@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     resources :items, only: %i[index]
     namespace :items do
       get "in_progress" => "in_progress#index", as: :in_progress
+      get "completed" => "completed#index", as: :completed
     end
   end
 
