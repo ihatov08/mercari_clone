@@ -99,4 +99,8 @@ class User < ApplicationRecord
   def unfollow(unfollow_user)
     active_relationships.find_by!(followed_id: unfollow_user.id).destroy!
   end
+
+  def following?(other_user)
+    following.where("relationships.followed_id = ?", other_user.id).exists?
+  end
 end
