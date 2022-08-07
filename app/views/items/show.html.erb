@@ -143,7 +143,7 @@
       <div class="mb-8" id="comment">
         <div class="mb-4">
           <h3 class="text-lg font-bold text-gray-700">コメント</h3>
-          <p class="text-xs">2 件</p>
+          <p class="text-xs"><%= @item.comments.size %> 件</p>
         </div>
         <div class="h-full flex flex-col space-y-4 mb-8">
           <% @item.comments.each do |comment| %>
