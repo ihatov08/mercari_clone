@@ -91,4 +91,8 @@ class User < ApplicationRecord
   def liked?(item)
     favorites.exists?(item: item)
   end
+
+  def follow(follow_user)
+    active_relationships.create!(followed_id: follow_user.id)
+  end
 end
