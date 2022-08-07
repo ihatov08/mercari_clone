@@ -1,0 +1,9 @@
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 px-2 md:px-8 xl:px-0" id="contents">
+  <div class="mb-8">
+    <h3 class="font-black text-center text-2xl mb-8"><%= @notification.title %></h3>
+      <div class="w-full md:w-6/12 md:mx-auto">
+        <p><%= l @notification.created_at, format: :long %></p>
+        <%= simple_format @notification.body %>
+      </div>
+    </div>
+</main>
