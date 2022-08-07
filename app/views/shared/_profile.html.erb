@@ -4,7 +4,11 @@
     <div>
       <p class="font-bold"><%= user.nickname %></p>
       <%= render partial: "shared/evaluation", locals: { user: user } %>
-      <button class="border text-sm border-red-500 text-red-500 px-4 py-1 rounded-md w-full md:w-auto mt-2 md:mt-0">＋フォロー</button>
+      <% if current_user.following?(@user) %>
+        <%= link_to "✓ フォロー中", user_relationships_path(@user), method: :delete, class: "border text-sm border-gray-500 text-gray-500 px-4 py-1 rounded-md w-full md:w-auto mt-2 md:mt-0" %>
+      <% else %>
+        <%= link_to "＋フォロー", user_relationships_path(@user), method: :post, class: "border text-sm border-red-500 text-red-500 px-4 py-1 rounded-md w-full md:w-auto mt-2 md:mt-0" %>
+      <% end %>
     </div>
   </div>
   <div class="flex space-x-4 items-start md:items-center">
@@ -13,11 +17,11 @@
       <dd>出品数</dd>
     </dl>
     <dl class="text-sm flex space-x-2">
-      <dt class="font-bold">12</dt>
+      <dt class="font-bold"><%= user.followers.size %></dt>
       <dd>フォロワー</dd>
     </dl>
     <dl class="text-sm flex space-x-2">
-      <dt class="font-bold">4</dt>
+      <dt class="font-bold"><%= user.following.size %></dt>
       <dd>フォロー中</dd>
     </dl>
   </div>
