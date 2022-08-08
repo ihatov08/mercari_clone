@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_one :stripe_customer, dependent: :destroy
   has_one :current_shipping_address, dependent: :destroy
   has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile, update_only: true
 
   has_many :items, dependent: :destroy
   has_many :favorites, dependent: :destroy
