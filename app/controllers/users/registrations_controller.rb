@@ -10,9 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do |resource|
+      resource.create_profile! if resource.persisted?
+    end
+  end
 
   # GET /resource/edit
   # def edit
