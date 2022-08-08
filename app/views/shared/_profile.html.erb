@@ -1,4 +1,4 @@
-<div id="profile">
+<div class="p-8 hidden flex-none md:block w-4/12" id="profile">
   <div class="flex space-x-4 items-start mb-4 md:items-center">
     <%= image_tag "profile.png", class: "rounded-full w-16 h-16 md:w-24 md:h-24" %>
     <div>
@@ -24,5 +24,8 @@
       <dt class="font-bold"><%= user.following.size %></dt>
       <dd>フォロー中</dd>
     </dl>
+  </div>
+  <div class="mt-4">
+    <p>丁寧な梱包を心がけています</p>
   </div>
 </div>
