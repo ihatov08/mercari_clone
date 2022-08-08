@@ -4,12 +4,14 @@
     <%= form_with model: @profile, url: mypage_profile_path do |f| %>
       <div class="text-left">
         <div class="mb-8">
-          <label class="block text-grey-500 text-sm font-bold mb-2" for="username">画像
-          </label>
-          <div class="flex space-x-6 items-center">
-            <img class="mb-4 rounded-full w-16 h-16 md:w-24 md:h-24" src="img/common/profile.png">
-          </div>
-          <input type="file">
+          <%= f.fields_for :profile do |profile| %>
+            <%= profile.label :avatar, class: "block text-grey-500 text-sm font-bold mb-2" %>
+            <div class="flex space-x-6 items-center">
+              <%= image_tag current_user.profile.avatar.url, class: "mb-4 rounded-full w-16 h-16 md:w-24 md:h-24" %>
+              <%= profile.file_field :avatar %>
+              <%= profile.hidden_field :avatar_cache %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="text-left">
