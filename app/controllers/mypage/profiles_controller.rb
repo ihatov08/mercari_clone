@@ -7,4 +7,13 @@ class Mypage::ProfilesController < ApplicationController
 
   def update
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(
+      :nickname,
+      profile_attributes: %i[avatar avatar_cache introduction]
+    )
+    end
 end
