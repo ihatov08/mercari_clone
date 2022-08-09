@@ -15,7 +15,7 @@
       </ul>
       <% @user.evaluations.with_good(params[:good]).each do |evaluation| %>
         <div class="flex px-4 py-4 space-x-4">
-          <%= image_tag "profile.png", class:"bg-gray-500 rounded-full w-12 h-12"  %>
+          <%= image_tag evaluation.reviewer.profile.avatar.url, class:"bg-gray-500 rounded-full w-12 h-12"  %>
           <div class="flex flex-col space-y-2 flex-grow">
             <p class="font-black" id="name"><%= evaluation.reviewer.nickname %></p>
             <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
