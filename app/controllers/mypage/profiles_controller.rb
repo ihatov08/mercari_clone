@@ -6,6 +6,12 @@ class Mypage::ProfilesController < ApplicationController
   end
 
   def update
+    if current_user.update(user_params)
+      redirect_to user_path(current_user), notice: "プロフィールの更新に成功しました"
+    else
+      flash.now.alert = "プロフィールの更新に失敗しました"
+      render :edit
+    end
   end
 
   private
