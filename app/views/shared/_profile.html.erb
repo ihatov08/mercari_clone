@@ -1,5 +1,5 @@
 <div class="flex space-x-4 items-start mb-4 md:items-center">
-  <%= image_tag "profile.png", class: "rounded-full w-16 h-16 md:w-24 md:h-24" %>
+  <%= image_tag user.profile.avatar.url, class: "rounded-full w-16 h-16 md:w-24 md:h-24" %>
   <div>
     <p class="font-bold"><%= user.nickname %></p>
     <%= render partial: "shared/evaluation", locals: { user: user } %>
