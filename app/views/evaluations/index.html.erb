@@ -1,6 +1,6 @@
 <main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 px-2 md:px-8 xl:px-0" id="contents">
   <div class="space-x-0 md:space-x-12 md:flex md:items-start">
-    <div class="border border-gray-200 p-8 hidden flex-none md:block w-4/12" id="profile">
+    <div class="border border-gray-200 p-8 hidden flex-none md:block w-4/12">
       <%= render partial: "shared/profile", locals: {user: @user } %>
     </div>
     <div class="w-full md:w-8/12" id="reviews">
@@ -15,7 +15,7 @@
       </ul>
       <% @user.evaluations.with_good(params[:good]).each do |evaluation| %>
         <div class="flex px-4 py-4 space-x-4">
-          <%= image_tag "profile.png", class:"bg-gray-500 rounded-full w-12 h-12"  %>
+          <%= image_tag evaluation.reviewer.profile.avatar.url, class:"bg-gray-500 rounded-full w-12 h-12"  %>
           <div class="flex flex-col space-y-2 flex-grow">
             <p class="font-black" id="name"><%= evaluation.reviewer.nickname %></p>
             <div class="bg-gray-100 rounded-md p-2 flex-grow" id="comment">
