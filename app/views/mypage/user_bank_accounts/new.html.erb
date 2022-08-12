@@ -5,28 +5,27 @@
       <div class="text-left">
         <div class="mb-6">
           <%= f.label :name, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="URIKAI銀行">
+          <%= f.text_field :name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full", placeholder: "URIKAI銀行" %>
         </div>
         <div class="mb-6">
           <%= f.label :kind, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <label class="block w-full hover:bg-gray-100 transition duration-200 px-1 py-2">
-            <input class="mr-1" type="radio"><span class="text-sm">普通</span>
-          </label>
-          <label class="block w-full hover:bg-gray-100 transition duration-200 px-1 py-2">
-            <input class="mr-1" type="radio"><span class="text-sm">当座</span>
-          </label>
+           <%= f.collection_radio_buttons(:kind, UserBankAccount.kinds_i18n, :first, :last) do |b| %>
+             <%= b.label(class: "block w-full hover:bg-gray-100 transition duration-200 px-1 py-2") do %>
+               <%= b.radio_button(class: "mr-1") + tag.span(b.text, class: "text-sm") %>
+             <% end %>
+           <% end %>
         </div>
         <div class="mb-6">
           <%= f.label :branch_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="URIKAI支店">
+          <%= f.text_field :branch_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full", placeholder: "URIKAI支店" %>
         </div>
         <div class="mb-6">
           <%= f.label :account_number, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="1234567">
+          <%= f.text_field :account_number, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full", placeholder: "1234567" %>
         </div>
         <div class="mb-6">
           <%= f.label :account_name, class: "block text-grey-500 text-sm font-bold mb-2" %>
-          <input class="appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" type="text" placeholder="うりかい太郎">
+          <%= f.text_field :account_name, class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full", placeholder: "うりかい太郎" %>
         </div>
       </div>
       <div class="text-left mt-12">
