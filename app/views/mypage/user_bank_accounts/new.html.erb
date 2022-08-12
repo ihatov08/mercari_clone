@@ -2,6 +2,7 @@
   <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
     <h1 class="font-black mb-8 text-2xl">振込銀行口座登録</h1>
     <%= form_with model: @user_bank_account, url: mypage_user_bank_accounts_path do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @user_bank_account } %>
       <div class="text-left">
         <div class="mb-6">
           <%= f.label :name, class: "block text-grey-500 text-sm font-bold mb-2" %>
