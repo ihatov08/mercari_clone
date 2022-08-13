@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_12_144751) do
+ActiveRecord::Schema.define(version: 2022_08_13_014203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2022_08_12_144751) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["stripe_customer_id"], name: "index_current_stripe_payments_on_stripe_customer_id", unique: true
     t.index ["stripe_payment_id"], name: "index_current_stripe_payments_on_stripe_payment_id"
+  end
+
+  create_table "current_user_bank_accounts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "user_bank_account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_bank_account_id"], name: "index_current_user_bank_accounts_on_user_bank_account_id"
+    t.index ["user_id", "user_bank_account_id"], name: "user_and_user_bank_account_uniq_index", unique: true
+    t.index ["user_id"], name: "index_current_user_bank_accounts_on_user_id"
   end
 
   create_table "evaluations", force: :cascade do |t|
@@ -314,6 +324,8 @@ ActiveRecord::Schema.define(version: 2022_08_12_144751) do
   add_foreign_key "current_shipping_addresses", "users"
   add_foreign_key "current_stripe_payments", "stripe_customers"
   add_foreign_key "current_stripe_payments", "stripe_payments"
+  add_foreign_key "current_user_bank_accounts", "user_bank_accounts"
+  add_foreign_key "current_user_bank_accounts", "users"
   add_foreign_key "evaluations", "orders"
   add_foreign_key "favorites", "items"
   add_foreign_key "favorites", "users"
