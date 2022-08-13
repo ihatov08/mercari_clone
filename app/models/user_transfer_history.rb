@@ -4,7 +4,7 @@ class UserTransferHistory < ApplicationRecord
   validates :price, presence: true
   validates :bank_name, presence: true
   validates :bank_account_name, presence: true
-  validates :kind, presence: true
+  validates :bank_account_kind, presence: true
   validates :bank_account_branch_name, presence: true
   validates :bank_account_number, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 500 }
@@ -39,7 +39,8 @@ class UserTransferHistory < ApplicationRecord
   private
 
   def price_less_than_user_earning
-    return if price <= user.user_earning.price
+    return unless price.presence
+    return if price <= user.user_earning&.price.to_i
 
     errors.add(
       :price,
