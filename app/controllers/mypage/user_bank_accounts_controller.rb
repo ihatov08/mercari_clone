@@ -1,6 +1,10 @@
 class Mypage::UserBankAccountsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user_bank_accounts = current_user.user_bank_accounts
+  end
+
   def new
     @user_bank_account = current_user.user_bank_accounts.build
   end
