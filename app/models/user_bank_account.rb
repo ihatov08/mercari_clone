@@ -18,7 +18,7 @@ class UserBankAccount < ApplicationRecord
     end
   end
 
-  def kinds_i18n
+  def kind_i18n
     self.class.kinds_i18n[kind.to_sym]
   end
 end
