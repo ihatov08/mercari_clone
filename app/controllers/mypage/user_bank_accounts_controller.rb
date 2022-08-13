@@ -24,6 +24,15 @@ class Mypage::UserBankAccountsController < ApplicationController
   def edit
   end
 
+  def update
+    if @user_bank_account.update(user_bank_account_params)
+      redirect_to mypage_user_bank_accounts_path, notice: "銀行口座の更新に成功しました"
+    else
+      flash.now.alert = "銀行口座の更新に失敗しました"
+      render :edit
+    end
+  end
+
   private
 
   def user_bank_account_params
