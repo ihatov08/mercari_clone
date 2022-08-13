@@ -17,4 +17,8 @@ class UserBankAccount < ApplicationRecord
       I18n.t("enums.user_bank_account.kind")
     end
   end
+
+  def kind_i18n
+    self.class.kinds_i18n[kind.to_sym]
+  end
 end
