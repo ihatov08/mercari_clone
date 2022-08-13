@@ -3,34 +3,24 @@
     <h1 class="font-black mb-8 text-2xl">振込申請画面</h1>
     <div class="text-left">
       <div class="mb-6">
-        <div class="block text-grey-500 text-sm font-bold mb-2">
-          銀行口座
-        </div>
-        <div class="py-2 px-3 w-full">URIKAI銀行</div>
+        <%= UserTransferHistory.human_attribute_name(:bank_name) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_name %></div>
       </div>
       <div class="mb-6">
-        <div class="block text-grey-500 text-sm font-bold mb-2">
-          口座種別
-        </div>
-        <div class="py-2 px-3 w-full">普通</div>
+        <%= UserTransferHistory.human_attribute_name(:bank_account_kind) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_account_kind_i18n %></div>
       </div>
       <div class="mb-6">
-        <div class="block text-grey-500 text-sm font-bold mb-2">
-          支店名
-        </div>
-        <div class="py-2 px-3 w-full">URIKAI支店</div>
+        <%= UserTransferHistory.human_attribute_name(:bank_account_branch_name) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_account_branch_name %></div>
       </div>
       <div class="mb-6">
-        <div class="block text-grey-500 text-sm font-bold mb-2">
-          口座番号
-        </div>
-        <div class="py-2 px-3 w-full">1234567</div>
+        <%= UserTransferHistory.human_attribute_name(:bank_account_number) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_account_number %></div>
       </div>
       <div class="mb-6">
-        <div class="block text-grey-500 text-sm font-bold mb-2">
-          口座名義
-        </div>
-        <div class="py-2 px-3 w-full">うりかい太郎</div>
+        <%= UserTransferHistory.human_attribute_name(:bank_account_name) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_account_name %></div>
       </div>
     </div>
     <form action="" mehod="">
