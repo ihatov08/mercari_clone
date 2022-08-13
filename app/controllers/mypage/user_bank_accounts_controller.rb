@@ -1,5 +1,6 @@
 class Mypage::UserBankAccountsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user_bank_account, only: %i[edit update]
 
   def index
     @user_bank_accounts = current_user.user_bank_accounts
@@ -21,7 +22,6 @@ class Mypage::UserBankAccountsController < ApplicationController
   end
 
   def edit
-    @user_bank_account = current_user.user_bank_accounts.find(params[:id])
   end
 
   private
@@ -34,5 +34,9 @@ class Mypage::UserBankAccountsController < ApplicationController
       :account_number,
       :account_name
     )
+  end
+
+  def set_user_bank_account
+    @user_bank_account = current_user.user_bank_accounts.find(params[:id])
   end
 end
