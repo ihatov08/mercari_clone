@@ -39,6 +39,7 @@ class User < ApplicationRecord
     dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :user_bank_accounts, dependent: :destroy
+  has_many :user_transfer_histories, dependent: :destroy
 
   enum gender: {
       unanswered: 0,
