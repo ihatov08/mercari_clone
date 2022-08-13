@@ -1,5 +1,6 @@
 class UserBankAccount < ApplicationRecord
   belongs_to :user
+  has_one :current_user_bank_account, dependent: :destroy
 
   validates :name, presence: true
   validates :kind, presence: true
