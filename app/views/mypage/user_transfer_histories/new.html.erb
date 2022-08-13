@@ -1,0 +1,52 @@
+<main class="w-11/12 flex-1 max-w-screen-xl mx-auto bg-white mt-24 pb-24 md:px-8 xl:px-0" id="contents">
+  <div class="text-center w-full px-4 bg-white md:w-2/3 lg:w-1/2 mx-auto" id="input">
+    <h1 class="font-black mb-8 text-2xl">振込申請画面</h1>
+    <div class="text-left">
+      <div class="mb-6">
+        <%= UserTransferHistory.human_attribute_name(:bank_name) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_name %></div>
+      </div>
+      <div class="mb-6">
+        <%= UserTransferHistory.human_attribute_name(:bank_account_kind) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_account_kind_i18n %></div>
+      </div>
+      <div class="mb-6">
+        <%= UserTransferHistory.human_attribute_name(:bank_account_branch_name) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_account_branch_name %></div>
+      </div>
+      <div class="mb-6">
+        <%= UserTransferHistory.human_attribute_name(:bank_account_number) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_account_number %></div>
+      </div>
+      <div class="mb-6">
+        <%= UserTransferHistory.human_attribute_name(:bank_account_name) %>
+        <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_account_name %></div>
+      </div>
+    </div>
+    <%= form_with model: @user_transfer_history, url: mypage_user_transfer_histories_path do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @user_transfer_history } %>
+      <div class="text-left">
+        <div class="mb-4 mb-6 border-t border-b border-gray-300">
+          <div class="block text-grey-500 text-sm font-bold mb-2">
+            出金可能額
+          </div>
+          <div class="py-2 px-3 w-full"><%= number_to_currency(current_user.user_earning&.price.to_i) %></div>
+        </div>
+        <div class="mb-6">
+          <%= f.label :price, class: "block text-grey-500 text-sm font-bold mb-2" %>
+          <%= f.text_field :price, placeholder: "1000", class: "appearance-none border border-gray-300 rounded py-2 px-3 text-grey-darker w-full" %>
+        </div>
+      </div>
+      <div class="text-left mt-12">
+        <div class="text-center mb-2 flex flex-col space-y-4">
+          <%= f.submit "申請する", class: "text-base font-bold bg-red-500 text-white p-2 w-full block py-4 rounded-sm" %>
+        </div>
+      </div>
+      <div class="text-left mt-12">
+        <div class="text-center mb-2 flex flex-col space-y-4">
+          <button class="text-base font-bold bg-white border border-red-500 text-red-500 p-2 w-full block py-4 rounded-sm" value="">戻る</button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>

@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     resource :profile, only: %i[edit update]
     resources :user_bank_accounts
     resource :current_user_bank_account, only: %i[update]
+    resources :user_transfer_histories, only: %i[new create]
   end
 
   resources :notifications, only: %i[index show]

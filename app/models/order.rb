@@ -44,6 +44,9 @@ class Order < ApplicationRecord
 
         assign_shipping_address_attributes
         save!
+        user_earning = UserEarning.find_or_initialize_by(user_id: item.user.id)
+        user_earning.price += item.price
+        user_earning.save!
         create_stripe_payment_intent!
       rescue Stripe::CardError => e
         Rails.logger.error "Error is: \#{e.error.code}"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_13_014203) do
+ActiveRecord::Schema.define(version: 2022_08_13_031750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -266,6 +266,14 @@ ActiveRecord::Schema.define(version: 2022_08_13_014203) do
     t.index ["user_id"], name: "index_user_bank_accounts_on_user_id"
   end
 
+  create_table "user_earnings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_earnings_on_user_id"
+  end
+
   create_table "user_informations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "family_name", null: false
@@ -288,6 +296,19 @@ ActiveRecord::Schema.define(version: 2022_08_13_014203) do
     t.index ["auth_code"], name: "index_user_mobile_phones_on_auth_code"
     t.index ["number"], name: "index_user_mobile_phones_on_number", unique: true
     t.index ["user_id"], name: "index_user_mobile_phones_on_user_id"
+  end
+
+  create_table "user_transfer_histories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "price", null: false
+    t.string "bank_name", null: false
+    t.string "bank_account_name", null: false
+    t.integer "bank_account_kind", null: false
+    t.string "bank_account_branch_name", null: false
+    t.string "bank_account_number", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_transfer_histories_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -350,6 +371,8 @@ ActiveRecord::Schema.define(version: 2022_08_13_014203) do
   add_foreign_key "stripe_customers", "users"
   add_foreign_key "stripe_payments", "stripe_customers"
   add_foreign_key "user_bank_accounts", "users"
+  add_foreign_key "user_earnings", "users"
   add_foreign_key "user_informations", "users"
   add_foreign_key "user_mobile_phones", "users"
+  add_foreign_key "user_transfer_histories", "users"
 end
