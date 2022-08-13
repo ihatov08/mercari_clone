@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      user_transfer_history:
+        user: ユーザー
+        bank_name: 銀行名
+        bank_account_kind: 口座種別
+        bank_account_branch_name: 支店名
+        bank_account_number: 口座番号
+        bank_account_name: 口座名義
+    models:
+      user_transfer_history: 振込先銀行口座
+  enums:
+    user_transfer_history:
+      kind:
+        saving: 普通
+        checking: 当座
