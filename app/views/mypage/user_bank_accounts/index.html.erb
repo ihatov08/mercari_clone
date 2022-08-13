@@ -7,7 +7,7 @@
           <div class="border border-gray-200 mb-4 flex space-x-4 p-4 rounded-sm cursor-pointer hover:bg-gray-100 duration-200 trantision">
             <div class="flex-grow">
               <div class="flex items-center">
-                <input type="radio">
+                <%= f.radio_button :user_bank_account_id, user_bank_account.id, checked: current_user.current_user_bank_account&.user_bank_account_id == user_bank_account.id %>
                 <p><%= user_bank_account.name %><br /><%= user_bank_account.kind_i18n %> <%= user_bank_account.account_number %><br /><%= user_bank_account.account_name %></p>
               </div>
             </div>
