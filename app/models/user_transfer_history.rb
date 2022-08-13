@@ -9,6 +9,8 @@ class UserTransferHistory < ApplicationRecord
   validates :bank_account_number, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 500 }
 
+  validate :price_less_than_user_earning
+
   enum bank_account_kind: {
     saving: 1,
     checking: 2
@@ -32,5 +34,16 @@ class UserTransferHistory < ApplicationRecord
     end
   rescue ActiveRecord::RecordInvalid => e
     false
+  end
+
+  private
+
+  def price_less_than_user_earning
+    return if price <= user.user_earning.price
+
+    errors.add(
+      :price,
+      "は#{user.user_earning.price}以下である必要があります"
+    )
   end
 end
