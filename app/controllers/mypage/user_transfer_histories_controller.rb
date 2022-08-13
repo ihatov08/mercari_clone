@@ -6,6 +6,14 @@ class Mypage::UserTransferHistoriesController < ApplicationController
   end
 
   def create
+    @user_transfer_history.price = params[:user_transfer_history][:price]
+
+    if @user_transfer_history.save
+      redirect_to mypage_path, notice: "振込申請に成功しました"
+    else
+      flash.now.alert = "振込申請に失敗しました"
+      render :new
+    end
   end
 
   private
