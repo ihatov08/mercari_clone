@@ -23,7 +23,7 @@
         <div class="py-2 px-3 w-full"><%= @user_transfer_history.bank_account_name %></div>
       </div>
     </div>
-    <form action="" mehod="">
+    <%= form_with model: @user_transfer_history, url: mypage_user_transfer_histories_path do |f| %>
       <div class="text-left">
         <div class="mb-4 mb-6 border-t border-b border-gray-300">
           <div class="block text-grey-500 text-sm font-bold mb-2">
@@ -47,6 +47,6 @@
           <button class="text-base font-bold bg-white border border-red-500 text-red-500 p-2 w-full block py-4 rounded-sm" value="">戻る</button>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </main>
