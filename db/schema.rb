@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_13_014203) do
+ActiveRecord::Schema.define(version: 2022_08_13_025634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -266,6 +266,14 @@ ActiveRecord::Schema.define(version: 2022_08_13_014203) do
     t.index ["user_id"], name: "index_user_bank_accounts_on_user_id"
   end
 
+  create_table "user_earnings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_earnings_on_user_id"
+  end
+
   create_table "user_informations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "family_name", null: false
@@ -350,6 +358,7 @@ ActiveRecord::Schema.define(version: 2022_08_13_014203) do
   add_foreign_key "stripe_customers", "users"
   add_foreign_key "stripe_payments", "stripe_customers"
   add_foreign_key "user_bank_accounts", "users"
+  add_foreign_key "user_earnings", "users"
   add_foreign_key "user_informations", "users"
   add_foreign_key "user_mobile_phones", "users"
 end
