@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_13_025634) do
+ActiveRecord::Schema.define(version: 2022_08_13_031750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -298,6 +298,19 @@ ActiveRecord::Schema.define(version: 2022_08_13_025634) do
     t.index ["user_id"], name: "index_user_mobile_phones_on_user_id"
   end
 
+  create_table "user_transfer_histories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "price", null: false
+    t.string "bank_name", null: false
+    t.string "bank_account_name", null: false
+    t.integer "bank_account_kind", null: false
+    t.string "bank_account_branch_name", null: false
+    t.string "bank_account_number", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_transfer_histories_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -361,4 +374,5 @@ ActiveRecord::Schema.define(version: 2022_08_13_025634) do
   add_foreign_key "user_earnings", "users"
   add_foreign_key "user_informations", "users"
   add_foreign_key "user_mobile_phones", "users"
+  add_foreign_key "user_transfer_histories", "users"
 end
