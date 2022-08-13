@@ -24,12 +24,13 @@
       </div>
     </div>
     <%= form_with model: @user_transfer_history, url: mypage_user_transfer_histories_path do |f| %>
+      <%= render partial: "shared/error_messages", locals: { resource: @user_transfer_history } %>
       <div class="text-left">
         <div class="mb-4 mb-6 border-t border-b border-gray-300">
           <div class="block text-grey-500 text-sm font-bold mb-2">
             出金可能額
           </div>
-          <div class="py-2 px-3 w-full"><%= number_to_currency(current_user.user_earning.price) %></div>
+          <div class="py-2 px-3 w-full"><%= number_to_currency(current_user.user_earning&.price.to_i) %></div>
         </div>
         <div class="mb-6">
           <%= f.label :price, class: "block text-grey-500 text-sm font-bold mb-2" %>
