@@ -1,12 +1,12 @@
 class UserTransferHistory < ApplicationRecord
   belongs_to :user
 
-  validates :price
-  validates :bank_name
-  validates :bank_account_name
-  validates :kind
-  validates :bank_account_branch_name
-  validates :bank_account_number
+  validates :price, presence: true
+  validates :bank_name, presence: true
+  validates :bank_account_name, presence: true
+  validates :kind, presence: true
+  validates :bank_account_branch_name, presence: true
+  validates :bank_account_number, presence: true
 
   enum bank_account_kind: {
     saving: 1,
