@@ -8,6 +8,7 @@ ja:
         bank_account_branch_name: 支店名
         bank_account_number: 口座番号
         bank_account_name: 口座名義
+        price: 出金申請額
     models:
       user_transfer_history: 振込先銀行口座
   enums:
