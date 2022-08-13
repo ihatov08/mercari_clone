@@ -1,7 +1,16 @@
 class Mypage::UserTransferHistoriesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user_transfer_history
 
   def new
+  end
+
+  def create
+  end
+
+  private
+
+  def set_user_transfer_history
     user_bank_account = current_user.current_user_bank_account.user_bank_account
     @user_transfer_history =
       current_user.user_transfer_histories.build(
@@ -11,8 +20,5 @@ class Mypage::UserTransferHistoriesController < ApplicationController
         bank_account_name: user_bank_account.account_name,
         bank_account_number: user_bank_account.account_number
       )
-  end
-
-  def create
   end
 end
