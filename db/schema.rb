@@ -247,7 +247,7 @@ ActiveRecord::Schema.define(version: 2022_08_12_144751) do
   create_table "user_bank_accounts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
-    t.string "kind", null: false
+    t.integer "kind", null: false
     t.string "branch_name", null: false
     t.string "account_number", null: false
     t.string "account_name", null: false
