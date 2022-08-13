@@ -7,6 +7,7 @@ class UserTransferHistory < ApplicationRecord
   validates :kind, presence: true
   validates :bank_account_branch_name, presence: true
   validates :bank_account_number, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 500 }
 
   enum bank_account_kind: {
     saving: 1,
