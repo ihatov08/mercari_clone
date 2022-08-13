@@ -22,4 +22,14 @@ class UserTransferHistory < ApplicationRecord
   def bank_account_kind_i18n
     self.class.bank_account_kinds_i18n[bank_account_kind.to_sym]
   end
+
+  def request_transfer!
+    transaction do
+      save!
+      user.user_earning.price -= price
+      user.user_earning.save!
+    end
+  rescue ActiveRecord::RecordInvalid => e
+    false
+  end
 end
