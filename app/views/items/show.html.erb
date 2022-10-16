@@ -42,11 +42,11 @@
             <span class="text-xs text-gray-700"><%= @item.favorites.size %></span>
           <% end %>
         <% end %>
-        <button class="p-2 px-4 text-center flex flex-col space-y-2 items-center justify-center hover:bg-gray-100 duration-200 transition rounded-sm">
+        <%= link_to "#comments", class: "p-2 px-4 text-center flex flex-col space-y-2 items-center justify-center hover:bg-gray-100 duration-200 transition rounded-sm" do %>
           <svg class="w-7 text-gray-900" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.96 9.96 0 0 1-4.587-1.112l-3.826 1.067a1.25 1.25 0 0 1-1.54-1.54l1.068-3.823A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2Zm0 1.5A8.5 8.5 0 0 0 3.5 12c0 1.47.373 2.883 1.073 4.137l.15.27-1.112 3.984 3.987-1.112.27.15A8.5 8.5 0 1 0 12 3.5ZM8.75 13h4.498a.75.75 0 0 1 .102 1.493l-.102.007H8.75a.75.75 0 0 1-.102-1.493L8.75 13h4.498H8.75Zm0-3.5h6.505a.75.75 0 0 1 .101 1.493l-.101.007H8.75a.75.75 0 0 1-.102-1.493L8.75 9.5h6.505H8.75Z" fill="currentColor"></path>
-          </svg><span class="text-xs text-gray-700">コメント    </span>
-        </button>
+          </svg><span class="text-xs text-gray-700">コメント</span>
+        <% end %>
       </div>
       <div class="mb-0 fixed bottom-0 bg-white w-full p-3 md:mb-8 md:p-0 border-t border-gray-300 md:border-none -ml-2 md:ml-0 md:w-auto z-50 md:static" id="button">
         <% if @item.order %>
@@ -142,7 +142,7 @@
       </div>
       <div class="mb-8" id="comment">
         <div class="mb-4">
-          <h3 class="text-lg font-bold text-gray-700">コメント</h3>
+          <h3 class="text-lg font-bold text-gray-700 scroll-mt-52" id="comments">コメント</h3>
           <p class="text-xs"><%= @item.comments.size %> 件</p>
         </div>
         <div class="h-full flex flex-col space-y-4 mb-8">
