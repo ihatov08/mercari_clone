@@ -70,6 +70,8 @@ class User < ApplicationRecord
     bad_total_point = evaluation_mappings[:bad] * EVALUATION_MINIMUM_RATE
 
     ((good_total_point + bad_total_point) / evaluation_count).round
+  rescue ZeroDivisionError
+    0
   end
 
   def remember_me
