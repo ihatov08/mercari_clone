@@ -1,0 +1,22 @@
+name: danger
+on: [pull_request]
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  danger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: setup danger
+        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
+        with:
+          ruby-version: 3.0.2
+      - run: gem install danger
+      - name: Run danger
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wget https://raw.githubusercontent.com/happiness-chain/danger/main/Dangerfile
+          danger --verbose
