@@ -1,0 +1,30 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-main {
+  flex-grow: 1;
+}
+
+.flash {
+  margin-top: 5rem;
+  padding: 0.75rem 1rem;
+}
+
+.flash-notice {
+  background-color: #dbeafe;
+  border-top: 1px solid #3b82f6;
+  color: #1d4ed8;
+}
+
+.flash-alert {
+  background-color: #fee2e2;
+  border-top: 1px solid #fee2e2;
+  color: #b91c1c;
+}
+
+.flash-text {
+  font-size: 0.875rem;
+} 
